@@ -1,0 +1,335 @@
+{
+  "products": [
+    {
+      "id": "horse",
+      "name": "Horse Embroidered T-Shirt",
+      "short": "Horse",
+      "gender": "Men",
+      "type": "Embroidered T-Shirt",
+      "price": 599,
+      "images": {
+        "Black": [
+          "assets/horse/black/02.jpeg",
+          "assets/horse/black/01.jpeg",
+          "assets/horse/black/03.jpeg",
+          "assets/horse/black/04.jpeg",
+          "assets/horse/black/05.jpeg"
+        ],
+        "Coffee": [
+          "assets/horse/coffee/03.jpeg",
+          "assets/horse/coffee/01.jpeg",
+          "assets/horse/coffee/02.jpeg",
+          "assets/horse/coffee/04.jpeg"
+        ],
+        "Purple": [
+          "assets/horse/purple/01.jpeg",
+          "assets/horse/purple/02.jpeg",
+          "assets/horse/purple/03.jpeg",
+          "assets/horse/purple/04.jpeg",
+          "assets/horse/purple/05.jpeg"
+        ],
+        "White": [
+          "assets/horse/white/03.jpeg",
+          "assets/horse/white/01.jpeg",
+          "assets/horse/white/02.jpeg",
+          "assets/horse/white/04.jpeg"
+        ]
+      }
+    },
+    {
+      "id": "sun",
+      "name": "Sun Embroidered T-Shirt",
+      "short": "Sun",
+      "gender": "Men",
+      "type": "Embroidered T-Shirt",
+      "price": 599,
+      "images": {
+        "Black": [
+          "assets/sun/black/02.jpeg",
+          "assets/sun/black/01.jpeg",
+          "assets/sun/black/03.jpeg",
+          "assets/sun/black/04.jpeg",
+          "assets/sun/black/05.jpeg"
+        ],
+        "Coffee": [
+          "assets/sun/coffee/03.jpeg",
+          "assets/sun/coffee/01.jpeg",
+          "assets/sun/coffee/02.jpeg",
+          "assets/sun/coffee/04.jpeg"
+        ],
+        "Purple": [
+          "assets/sun/purple/05.jpeg",
+          "assets/sun/purple/01.jpeg",
+          "assets/sun/purple/02.jpeg",
+          "assets/sun/purple/03.jpeg",
+          "assets/sun/purple/04.jpeg"
+        ],
+        "White": [
+          "assets/sun/white/03.jpeg",
+          "assets/sun/white/01.jpeg",
+          "assets/sun/white/02.jpeg",
+          "assets/sun/white/04.jpeg"
+        ]
+      }
+    },
+    {
+      "id": "rise",
+      "name": "Rise Printed T-Shirt",
+      "short": "Rise",
+      "gender": "Men",
+      "type": "Printed T-Shirt",
+      "price": 499,
+      "images": {
+        "Black": [
+          "assets/rise/black/02.jpeg",
+          "assets/rise/black/01.jpeg",
+          "assets/rise/black/03.jpeg",
+          "assets/rise/black/04.jpeg"
+        ],
+        "Coffee": [
+          "assets/rise/coffee/02.jpeg",
+          "assets/rise/coffee/01.jpeg",
+          "assets/rise/coffee/03.jpeg",
+          "assets/rise/coffee/04.jpeg"
+        ],
+        "Purple": [
+          "assets/rise/purple/02.jpeg",
+          "assets/rise/purple/01.jpeg",
+          "assets/rise/purple/03.jpeg",
+          "assets/rise/purple/04.jpeg"
+        ],
+        "White": [
+          "assets/rise/white/03.jpeg",
+          "assets/rise/white/01.jpeg",
+          "assets/rise/white/02.jpeg",
+          "assets/rise/white/04.jpeg"
+        ]
+      }
+    },
+    {
+      "id": "panda",
+      "name": "Panda Embroidered T-Shirt",
+      "short": "Panda",
+      "gender": "Women",
+      "type": "Embroidered T-Shirt",
+      "price": 599,
+      "images": {
+        "Black": [
+          "assets/panda/black/02.jpeg",
+          "assets/panda/black/01.jpeg",
+          "assets/panda/black/03.jpeg",
+          "assets/panda/black/04.jpeg",
+          "assets/panda/black/05.jpeg"
+        ],
+        "Coffee": [
+          "assets/panda/coffee/01.jpeg",
+          "assets/panda/coffee/02.jpeg",
+          "assets/panda/coffee/03.jpeg",
+          "assets/panda/coffee/04.jpeg"
+        ],
+        "Purple": [
+          "assets/panda/purple/01.jpeg",
+          "assets/panda/purple/02.jpeg",
+          "assets/panda/purple/03.jpeg",
+          "assets/panda/purple/04.jpeg",
+          "assets/panda/purple/05.jpeg"
+        ],
+        "White": [
+          "assets/panda/white/02.jpeg",
+          "assets/panda/white/01.jpeg",
+          "assets/panda/white/03.jpeg",
+          "assets/panda/white/04.jpeg"
+        ]
+      }
+    },
+    {
+      "id": "parrot",
+      "name": "Parrot Embroidered T-Shirt",
+      "short": "Parrot",
+      "gender": "Women",
+      "type": "Embroidered T-Shirt",
+      "price": 599,
+      "images": {
+        "Black": [
+          "assets/parrot/black/01.jpeg",
+          "assets/parrot/black/02.jpeg",
+          "assets/parrot/black/03.jpeg",
+          "assets/parrot/black/04.jpeg"
+        ],
+        "Coffee": [
+          "assets/parrot/coffee/02.jpeg",
+          "assets/parrot/coffee/01.jpeg",
+          "assets/parrot/coffee/03.jpeg",
+          "assets/parrot/coffee/04.jpeg"
+        ],
+        "Purple": [
+          "assets/parrot/purple/01.jpeg",
+          "assets/parrot/purple/02.jpeg",
+          "assets/parrot/purple/03.jpeg",
+          "assets/parrot/purple/04.jpeg"
+        ],
+        "White": [
+          "assets/parrot/white/04.jpeg",
+          "assets/parrot/white/01.jpeg",
+          "assets/parrot/white/02.jpeg",
+          "assets/parrot/white/03.jpeg"
+        ]
+      }
+    },
+    {
+      "id": "passion",
+      "name": "Passion Printed T-Shirt",
+      "short": "Passion",
+      "gender": "Women",
+      "type": "Printed T-Shirt",
+      "price": 499,
+      "images": {
+        "Black": [
+          "assets/passion/black/01.jpeg",
+          "assets/passion/black/02.jpeg",
+          "assets/passion/black/03.jpeg",
+          "assets/passion/black/04.jpeg",
+          "assets/passion/black/05.jpeg"
+        ],
+        "Coffee": [
+          "assets/passion/coffee/02.jpeg",
+          "assets/passion/coffee/01.jpeg",
+          "assets/passion/coffee/03.jpeg",
+          "assets/passion/coffee/04.jpeg"
+        ],
+        "Purple": [
+          "assets/passion/purple/01.jpeg",
+          "assets/passion/purple/02.jpeg",
+          "assets/passion/purple/03.jpeg",
+          "assets/passion/purple/04.jpeg",
+          "assets/passion/purple/05.jpeg"
+        ],
+        "White": [
+          "assets/passion/white/03.jpeg",
+          "assets/passion/white/01.jpeg",
+          "assets/passion/white/02.jpeg",
+          "assets/passion/white/04.jpeg"
+        ]
+      }
+    },
+    {
+      "id": "blue-flower",
+      "name": "Blue Flower Embroidered Co-ord Set",
+      "short": "Blue Flower",
+      "gender": "Women",
+      "type": "Embroidered Co-ord Set",
+      "price": 699,
+      "images": {
+        "default": [
+          "assets/blue-flower/01.jpeg",
+          "assets/blue-flower/02.jpeg",
+          "assets/blue-flower/03.jpeg",
+          "assets/blue-flower/04.jpeg"
+        ]
+      }
+    },
+    {
+      "id": "pink-fish",
+      "name": "Pink Fish Embroidered Co-ord Set",
+      "short": "Pink Fish",
+      "gender": "Women",
+      "type": "Embroidered Co-ord Set",
+      "price": 699,
+      "images": {
+        "default": [
+          "assets/pink-fish/01.jpeg",
+          "assets/pink-fish/02.jpeg",
+          "assets/pink-fish/03.jpeg",
+          "assets/pink-fish/04.jpeg"
+        ]
+      }
+    },
+    {
+      "id": "red-bokeh",
+      "name": "Red Bokeh Embroidered Co-ord Set",
+      "short": "Red Bokeh",
+      "gender": "Women",
+      "type": "Embroidered Co-ord Set",
+      "price": 699,
+      "images": {
+        "default": [
+          "assets/red-bokeh/01.jpeg",
+          "assets/red-bokeh/02.jpeg",
+          "assets/red-bokeh/03.jpeg",
+          "assets/red-bokeh/04.jpeg"
+        ]
+      }
+    }
+  ],
+  "sizes": {
+    "Men T-Shirt": [
+      [
+        "L",
+        "40",
+        "27",
+        "8"
+      ],
+      [
+        "XL",
+        "44",
+        "28",
+        "8.5"
+      ],
+      [
+        "XXL",
+        "46",
+        "29",
+        "9"
+      ]
+    ],
+    "Women T-Shirt": [
+      [
+        "L",
+        "38",
+        "22",
+        "6.5"
+      ],
+      [
+        "XL",
+        "40",
+        "23",
+        "7.5"
+      ],
+      [
+        "XXL",
+        "42",
+        "25",
+        "8"
+      ]
+    ],
+    "Women Co-ord Set": [
+      [
+        "L",
+        "38",
+        "24",
+        "34",
+        "36",
+        "19",
+        "27"
+      ],
+      [
+        "XL",
+        "40",
+        "25",
+        "35",
+        "38",
+        "20",
+        "27"
+      ],
+      [
+        "XXL",
+        "42",
+        "26",
+        "36",
+        "40",
+        "21",
+        "27"
+      ]
+    ]
+  }
+}

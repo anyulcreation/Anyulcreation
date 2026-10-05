@@ -1,0 +1,1291 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Anyul Creation — Embroidery • Prints • Everyday Statements</title>
+    <meta name="description" content="Embroidered and printed T-shirts and embroidered co-ord sets for men and women. Order directly on WhatsApp.">
+    <meta name="theme-color" content="#181818">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #181818;
+            --mut: #6b6b6b;
+            --line: #e8e6e1;
+            --soft: #f6f4ef;
+            --gold: #b8923f;
+           
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            margin: 0;
+            font: 16px/1.6 'DM Sans',system-ui,sans-serif;
+            color: var(--ink);
+            background: #fff
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        button, select, input {
+            font: inherit;
+            color: inherit
+        }
+
+        button {
+            cursor: pointer
+        }
+
+        img {
+            display: block;
+            max-width: 100%
+        }
+
+        .w {
+            max-width: var(--max);
+            margin: auto;
+            padding: 0 20px
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display',Georgia,serif;
+            font-weight: 500;
+            line-height: 1.15;
+            margin: 0
+        }
+
+        .eyebrow {
+            font-size: 13px;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 700
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            min-height: 48px;
+            padding: 0 28px;
+            background: var(--ink);
+            color: #fff;
+            border: 1px solid var(--ink);
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            transition: .2s
+        }
+
+            .btn:hover {
+                background: var(--gold);
+                border-color: var(--gold)
+            }
+
+            .btn.alt {
+                background: #fff;
+                color: var(--ink)
+            }
+
+                .btn.alt:hover {
+                    background: var(--ink);
+                    color: #fff
+                }
+
+            .btn.wa {
+                background: #1f8f4e;
+                border-color: #1f8f4e
+            }
+
+                .btn.wa:hover {
+                    background: #17703d
+                }
+
+            .btn.block {
+                width: 100%
+            }
+
+        :focus-visible {
+            outline: 3px solid var(--gold);
+            outline-offset: 2px
+        }
+
+        .top {
+            background: var(--ink);
+            color: #fff;
+            text-align: center;
+            font-size: 14px;
+            padding: 9px 12px
+        }
+
+            .top a {
+                color: #e6c67a;
+                font-weight: 700
+            }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 40;
+            background: #fff;
+            border-bottom: 1px solid var(--line)
+        }
+
+        .hd {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 74px;
+            gap: 16px
+        }
+
+        .logo img {
+            height: 58px;
+            width: 58px;
+            object-fit: cover;
+            border-radius: 50%
+        }
+
+        nav.main {
+            display: flex;
+            gap: 30px
+        }
+
+            nav.main a {
+                font-size: 15px;
+                font-weight: 500;
+                padding: 6px 0;
+                border-bottom: 2px solid transparent
+            }
+
+                nav.main a:hover, nav.main a.on {
+                    border-color: var(--gold)
+                }
+
+        .ic {
+            display: flex;
+            gap: 6px
+        }
+
+        .ib {
+            position: relative;
+            width: 46px;
+            height: 46px;
+            border: 0;
+            background: none;
+            display: grid;
+            place-items: center;
+            border-radius: 50%
+        }
+
+            .ib:hover {
+                background: var(--soft)
+            }
+
+            .ib svg {
+                width: 24px;
+                height: 24px
+            }
+
+        .badge {
+            position: absolute;
+            top: 3px;
+            right: 1px;
+            min-width: 20px;
+            height: 20px;
+            border-radius: 10px;
+            background: var(--gold);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 700;
+            display: grid;
+            place-items: center;
+            padding: 0 5px
+        }
+
+            .badge:empty {
+                display: none
+            }
+
+        #burger {
+            display: none
+        }
+
+        .hero {
+            position: relative;
+            height: min(78vh,640px);
+            min-height: 800px;
+            background: #000;
+            overflow: hidden
+        }
+
+        .slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity .8s
+        }
+
+            .slide.on {
+                opacity: 1
+            }
+
+            .slide img {
+                width: 100%;
+                height: 100%;
+            }
+
+            .slide:after {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(90deg,rgba(0,0,0,.72),rgba(0,0,0,.15) 65%)
+            }
+
+        .hcopy {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: #fff;
+            max-width: 560px
+        }
+
+            .hcopy h1 {
+                font-size: clamp(34px,5.5vw,62px);
+                margin: 10px 0 14px
+            }
+
+            .hcopy p {
+                font-size: 18px;
+                color: #ddd;
+                margin: 0 0 26px
+            }
+
+        .dots {
+            position: absolute;
+            z-index: 3;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 10px
+        }
+
+            .dots button {
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                border: 1px solid #fff;
+                background: none;
+                padding: 0
+            }
+
+                .dots button.on {
+                    background: #fff
+                }
+
+        .sec {
+            padding: 64px 0
+        }
+
+        .sh {
+            text-align: center;
+            margin-bottom: 32px
+        }
+
+            .sh h2 {
+                font-size: clamp(28px,3.6vw,40px);
+                margin-top: 6px
+            }
+
+        .cols {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 280px 280px;
+            gap: 16px
+        }
+
+        .col {
+            position: relative;
+            overflow: hidden;
+            background: #222
+        }
+
+            .col.t {
+                grid-column: 3;
+                grid-row: 1/3
+            }
+
+            .col.all {
+                grid-column: 1/3;
+                grid-row: 2
+            }
+
+            .col img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: top;
+                transition: transform .5s
+            }
+
+            .col:hover img {
+                transform: scale(1.05)
+            }
+
+            .col:after {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(0deg,rgba(0,0,0,.65),transparent 60%)
+            }
+
+        .cc {
+            position: absolute;
+            z-index: 2;
+            left: 22px;
+            bottom: 20px;
+            color: #fff
+        }
+
+            .cc h3 {
+                font-size: 28px;
+                margin: 2px 0 8px
+            }
+
+            .cc span {
+                font-size: 14px;
+                font-weight: 700;
+                letter-spacing: .08em;
+                text-transform: uppercase;
+                border-bottom: 2px solid var(--gold)
+            }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 32px 20px
+        }
+
+        .card {
+            display: block
+        }
+
+        .ci {
+            position: relative;
+            aspect-ratio: 2/3;
+            overflow: hidden;
+            background: var(--soft)
+        }
+
+            .ci img {
+                position: absolute;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: opacity .4s,transform .5s
+            }
+
+                .ci img + img {
+                    opacity: 0
+                }
+
+        .card:hover .ci img + img {
+            opacity: 1
+        }
+
+        .card:hover .ci img {
+            transform: scale(1.03)
+        }
+
+        .tag {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 2;
+            background: #fff;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            padding: 4px 10px
+        }
+
+        .qa {
+            position: absolute;
+            z-index: 2;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            min-height: 44px;
+            background: #fff;
+            border: 0;
+            font-weight: 700;
+            font-size: 14px;
+            opacity: 0;
+            transform: translateY(8px);
+            transition: .25s
+        }
+
+        .card:hover .qa {
+            opacity: 1;
+            transform: none
+        }
+
+        .cm {
+            font-size: 13px;
+            color: var(--mut);
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            margin-top: 12px
+        }
+
+        .cn {
+            font-size: 17px;
+            font-weight: 500;
+            margin: 2px 0
+        }
+
+        .cp {
+            font-weight: 700;
+            font-size: 17px
+        }
+
+        .dots2 {
+            display: flex;
+            gap: 6px;
+            margin-top: 8px
+        }
+
+            .dots2 i {
+                width: 14px;
+                height: 14px;
+                border-radius: 50%;
+                border: 1px solid #ccc
+            }
+
+        .split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: var(--ink);
+            color: #fff
+        }
+
+            .split img {
+                width: 100%;
+                height: 100%;
+                min-height: 420px;
+                object-fit: cover;
+                object-position: top
+            }
+
+        .sc {
+            padding: 56px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start
+        }
+
+            .sc h2 {
+                font-size: clamp(30px,4vw,46px);
+                margin: 8px 0 16px
+            }
+
+            .sc p {
+                color: #ccc;
+                font-size: 18px;
+                max-width: 440px;
+                margin: 0 0 26px
+            }
+
+        .feat {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            border-block: 1px solid var(--line)
+        }
+
+            .feat div {
+                padding: 30px 16px;
+                text-align: center;
+                border-right: 1px solid var(--line)
+            }
+
+                .feat div:last-child {
+                    border: 0
+                }
+
+            .feat b {
+                display: block;
+                font-size: 17px
+            }
+
+            .feat span {
+                color: var(--mut);
+                font-size: 15px
+            }
+
+        footer {
+            background: var(--ink);
+            color: #fff;
+            margin-top: 64px
+        }
+
+        .fg {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+            gap: 36px;
+            padding: 56px 20px 36px
+        }
+
+        footer img {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 12px
+        }
+
+        footer p {
+            color: #bbb;
+            font-size: 15px;
+            max-width: 320px;
+            margin: 0
+        }
+
+        footer h4 {
+            font-size: 14px;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            margin: 0 0 14px
+        }
+
+        footer li {
+            list-style: none;
+            margin-bottom: 9px
+        }
+
+        footer ul {
+            padding: 0;
+            margin: 0
+        }
+
+        footer li a {
+            color: #bbb;
+            font-size: 15px
+        }
+
+            footer li a:hover {
+                color: #e6c67a
+            }
+
+        .cp2 {
+            border-top: 1px solid #333;
+            padding: 18px 20px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+            color: #999;
+            font-size: 14px
+        }
+
+        .head {
+            background: var(--soft);
+            text-align: center;
+            padding: 44px 20px
+        }
+
+            .head h1 {
+                font-size: clamp(32px,5vw,50px);
+                margin-top: 6px
+            }
+
+            .head p {
+                color: var(--mut);
+                margin: 8px 0 0
+            }
+
+        .bar {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--line);
+            margin-bottom: 28px
+        }
+
+        .chip {
+            min-height: 44px;
+            padding: 0 20px;
+            border: 1px solid #cfcfcf;
+            background: #fff;
+            border-radius: 30px;
+            font-size: 15px
+        }
+
+            .chip.on {
+                background: var(--ink);
+                color: #fff;
+                border-color: var(--ink)
+            }
+
+        .bar select {
+            min-height: 44px;
+            border: 1px solid #cfcfcf;
+            border-radius: 8px;
+            padding: 0 12px;
+            background: #fff;
+            margin-left: auto
+        }
+
+        .cnt {
+            color: var(--mut);
+            font-size: 15px
+        }
+
+        .pp {
+            display: grid;
+            grid-template-columns: 1.15fr 1fr;
+            gap: 48px;
+            padding: 28px 0 20px
+        }
+
+        .bc {
+            font-size: 14px;
+            color: var(--mut);
+            padding-top: 22px
+        }
+
+            .bc a:hover {
+                color: var(--gold)
+            }
+
+        .gal {
+            display: grid;
+            grid-template-columns: 84px 1fr;
+            gap: 12px
+        }
+
+        .th {
+            display: flex;
+            flex-direction: column;
+            gap: 10px
+        }
+
+            .th button {
+                padding: 0;
+                border: 2px solid transparent;
+                background: var(--soft);
+                aspect-ratio: 2/3;
+                overflow: hidden
+            }
+
+                .th button.on {
+                    border-color: var(--ink)
+                }
+
+            .th img, .mainimg img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover
+            }
+
+        .mainimg {
+            aspect-ratio: 2/3;
+            background: var(--soft);
+            overflow: hidden
+        }
+
+        .info {
+            position: sticky;
+            top: 96px;
+            align-self: start
+        }
+
+            .info h1 {
+                font-size: clamp(28px,3.4vw,40px);
+                margin: 8px 0 10px
+            }
+
+        .price {
+            font-size: 26px;
+            font-weight: 700
+        }
+
+        .tax {
+            color: var(--mut);
+            font-size: 14px
+        }
+
+        .lbl {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            margin: 24px 0 10px
+        }
+
+            .lbl span {
+                font-weight: 400;
+                color: var(--mut);
+                text-transform: none;
+                letter-spacing: 0
+            }
+
+        .sw {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap
+        }
+
+            .sw button {
+                width: 44px;
+                height: 44px;
+                border-radius: 50%;
+                border: 1px solid #ccc;
+                padding: 0;
+                box-shadow: inset 0 0 0 3px #fff
+            }
+
+                .sw button.on {
+                    outline: 2px solid var(--ink);
+                    outline-offset: 2px
+                }
+
+        .sz {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap
+        }
+
+            .sz button {
+                min-width: 64px;
+                min-height: 48px;
+                border: 1px solid #cfcfcf;
+                background: #fff;
+                font-weight: 500
+            }
+
+                .sz button.on {
+                    background: var(--ink);
+                    color: #fff;
+                    border-color: var(--ink)
+                }
+
+        .qty {
+            display: inline-flex;
+            align-items: center;
+            border: 1px solid #cfcfcf
+        }
+
+            .qty button {
+                width: 46px;
+                height: 48px;
+                border: 0;
+                background: none;
+                font-size: 22px
+            }
+
+            .qty b {
+                min-width: 38px;
+                text-align: center
+            }
+
+        .acts {
+            display: grid;
+            gap: 12px;
+            margin-top: 26px
+        }
+
+        .row {
+            display: flex;
+            gap: 12px;
+            align-items: center
+        }
+
+            .row .btn {
+                flex: 1
+            }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 15px
+        }
+
+        th, td {
+            padding: 10px 8px;
+            border-bottom: 1px solid var(--line);
+            text-align: left
+        }
+
+        th {
+            background: var(--soft)
+        }
+
+        .tw {
+            overflow-x: auto
+        }
+
+        details {
+            border-top: 1px solid var(--line);
+            margin-top: 24px;
+            padding-top: 14px
+        }
+
+        summary {
+            font-weight: 700;
+            cursor: pointer;
+            min-height: 36px
+        }
+
+        .ov {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,.45);
+            z-index: 80;
+            display: none
+        }
+
+            .ov.on {
+                display: block
+            }
+
+        .dr {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: min(440px,100%);
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            animation: in .25s
+        }
+
+        @keyframes in {
+            from {
+                transform: translateX(40px);
+                opacity: 0
+            }
+        }
+
+        .dh {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 22px;
+            border-bottom: 1px solid var(--line)
+        }
+
+            .dh h3 {
+                font-size: 24px
+            }
+
+        .db {
+            flex: 1;
+            overflow: auto;
+            padding: 12px 22px
+        }
+
+        .df {
+            padding: 20px 22px;
+            border-top: 1px solid var(--line);
+            display: grid;
+            gap: 12px
+        }
+
+        .ln {
+            display: grid;
+            grid-template-columns: 84px 1fr;
+            gap: 14px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--line)
+        }
+
+            .ln img {
+                width: 84px;
+                height: 126px;
+                object-fit: cover
+            }
+
+            .ln small {
+                color: var(--mut);
+                font-size: 14px
+            }
+
+        .rm {
+            border: 0;
+            background: none;
+            color: var(--mut);
+            text-decoration: underline;
+            font-size: 14px;
+            padding: 6px 0
+        }
+
+        .tot {
+            display: flex;
+            justify-content: space-between;
+            font-size: 20px;
+            font-weight: 700
+        }
+
+        .sb {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #fff;
+            padding: 22px 0 26px;
+            max-height: 100vh;
+            overflow: auto
+        }
+
+            .sb input {
+                width: 100%;
+                height: 56px;
+                border: 0;
+                border-bottom: 2px solid var(--ink);
+                font-size: 22px;
+                outline: 0
+            }
+
+        .sr {
+            display: flex;
+            gap: 14px;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--line)
+        }
+
+            .sr img {
+                width: 56px;
+                height: 84px;
+                object-fit: cover
+            }
+
+        .mm {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: min(340px,88vw);
+            background: #fff;
+            padding: 20px;
+            animation: in .25s
+        }
+
+            .mm a {
+                display: block;
+                font: 500 26px 'Playfair Display',serif;
+                padding: 12px 0;
+                border-bottom: 1px solid var(--line)
+            }
+
+        .toast {
+            position: fixed;
+            left: 50%;
+            bottom: 24px;
+            transform: translate(-50%,120px);
+            background: var(--ink);
+            color: #fff;
+            padding: 14px 22px;
+            z-index: 120;
+            transition: .3s;
+            font-weight: 500;
+            opacity: 0;
+            pointer-events: none
+        }
+
+            .toast.on {
+                transform: translate(-50%,0);
+                opacity: 1
+            }
+
+        .wf {
+            position: fixed;
+            right: 18px;
+            bottom: 18px;
+            z-index: 60;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background: #1f8f4e;
+            color: #fff;
+            display: grid;
+            place-items: center;
+            box-shadow: 0 6px 18px rgba(0,0,0,.3)
+        }
+
+            .wf svg {
+                width: 30px;
+                height: 30px
+            }
+
+        .ab {
+            max-width: 720px;
+            margin: auto;
+            padding: 56px 20px;
+            font-size: 18px;
+            color: #444
+        }
+
+            .ab h1 {
+                font-size: clamp(32px,5vw,48px);
+                color: var(--ink);
+                margin: 8px 0 18px
+            }
+
+        .empty {
+            text-align: center;
+            padding: 60px 0;
+            color: var(--mut);
+            grid-column: 1/-1
+        }
+
+        @media(max-width:900px) {
+            nav.main {
+                display: none
+            }
+
+            #burger {
+                display: grid
+            }
+
+            .hd {
+                height: 64px
+            }
+
+            .logo img {
+                height: 48px;
+                width: 48px
+            }
+
+            .grid {
+                grid-template-columns: repeat(2,1fr);
+                gap: 26px 12px
+            }
+
+            .cols {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 220px 220px;
+                gap: 12px
+            }
+
+            .col.t {
+                grid-column: 1/3;
+                grid-row: 3
+            }
+
+            .col.all {
+                grid-column: 1/3;
+                grid-row: 2
+            }
+
+            .split {
+                grid-template-columns: 1fr
+            }
+
+                .split img {
+                    min-height: 340px
+                }
+
+            .sc {
+                padding: 36px 22px
+            }
+
+            .feat {
+                grid-template-columns: 1fr 1fr
+            }
+
+                .feat div:nth-child(2) {
+                    border-right: 0
+                }
+
+                .feat div:nth-child(-n+2) {
+                    border-bottom: 1px solid var(--line)
+                }
+
+            .fg {
+                grid-template-columns: 1fr 1fr
+            }
+
+                .fg > div:first-child {
+                    grid-column: 1/3
+                }
+
+            .pp {
+                grid-template-columns: 1fr;
+                gap: 24px
+            }
+
+            .info {
+                position: static
+            }
+
+            .sec {
+                padding: 44px 0
+            }
+
+            .hero {
+                height: 520px
+            }
+
+            .slide:after {
+                background: linear-gradient(0deg,rgba(0,0,0,.85),rgba(0,0,0,.05) 65%)
+            }
+
+            .hcopy {
+                justify-content: flex-end;
+                padding-bottom: 56px
+            }
+
+            .slide img {
+                object-position: 88% top !important
+            }
+
+            .gal {
+                grid-template-columns: 1fr
+            }
+
+            .th {
+                flex-direction: row;
+                order: 2;
+                overflow-x: auto
+            }
+
+                .th button {
+                    width: 72px;
+                    flex: none
+                }
+
+            .qa {
+                display: none
+            }
+
+            .cn {
+                font-size: 16px
+            }
+
+            .bar select {
+                margin-left: 0
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top">Order directly on <a href="https://wa.me/917490097263" target="_blank" rel="noopener">WhatsApp +91 74900 97263</a> · Embroidered &amp; printed pieces</div>
+    <header>
+        <div class="w hd">
+            <button class="ib" id="burger" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M3 12h18M3 18h18" /></svg></button>
+            <a class="logo" href="#/" aria-label="Anyul Creation home"><img src="logo.png" alt="Anyul Creation"></a>
+            <nav class="main"><a href="#/" data-n="home">Home</a><a href="#/shop/Men" data-n="Men">Men</a><a href="#/shop/Women" data-n="Women">Women</a><a href="#/shop/Co-ord" data-n="Co-ord">Co-ord Sets</a><a href="#/shop" data-n="shop">All Products</a><a href="#/about" data-n="about">About</a></nav>
+            <div class="ic">
+                <button class="ib" id="sBtn" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7" /><path d="m20 20-4-4" /></svg></button>
+                <button class="ib" id="cBtn" aria-label="Open bag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 8h14l-1 12H6L5 8Z" /><path d="M9 8a3 3 0 0 1 6 0" /></svg><span class="badge" id="cc"></span></button>
+            </div>
+        </div>
+    </header>
+    <main id="app"></main>
+    <div class="ov" id="sO"><div class="sb"><div class="w"><div class="row"><input id="sI" placeholder="Search T-shirts, co-ord sets…" aria-label="Search"><button class="ib" data-x aria-label="Close">✕</button></div><div id="sR"></div></div></div></div>
+    <div class="ov" id="cO"><div class="dr"><div class="dh"><h3>Your Bag</h3><button class="ib" data-x aria-label="Close">✕</button></div><div class="db" id="cB"></div><div class="df" id="cF"></div></div></div>
+    <div class="ov" id="mO"><div class="mm"><button class="ib" data-x aria-label="Close" style="margin-left:auto;display:grid">✕</button><a href="#/">Home</a><a href="#/shop/Men">Men</a><a href="#/shop/Women">Women</a><a href="#/shop/Co-ord">Co-ord Sets</a><a href="#/shop">All Products</a><a href="#/about">About</a></div></div>
+    <a class="wf" href="https://wa.me/917490097263?text=Hello%20Anyul%20Creation" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M20.1 3.9A11.3 11.3 0 0 0 12 .7 11.35 11.35 0 0 0 2.1 17.8L.7 23.3l5.6-1.4A11.35 11.35 0 0 0 23.3 12a11.3 11.3 0 0 0-3.2-8.1Zm-8.1 17.2a9.1 9.1 0 0 1-4.6-1.3l-.3-.2-3.3.8.9-3.2-.2-.3A9.15 9.15 0 1 1 12 21.1Zm5-6.8c-.3-.2-1.7-.9-2-.9-.3-.1-.5-.1-.7.2-.2.3-.7.9-.8 1.1-.2.2-.3.2-.6.1-1.6-.8-2.7-1.5-3.8-3.3-.3-.5.3-.5.8-1.6.1-.2 0-.4 0-.5l-.7-1.7c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-1 1-1 2.4s1 2.8 1.1 3c.1.2 2 3.1 4.9 4.3 2.4 1 2.4.7 2.8.7.4 0 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1Z" /></svg></a>
+    <div class="toast" id="tt" role="status"></div>
+    <script>
+const D={"products":[{"id":"horse","name":"Horse Embroidered T-Shirt","short":"Horse","gender":"Men","type":"Embroidered T-Shirt","price":599,"images":{"Black":["assets/horse/black/02.jpeg","assets/horse/black/01.jpeg","assets/horse/black/03.jpeg","assets/horse/black/04.jpeg","assets/horse/black/05.jpeg"],"Coffee":["assets/horse/coffee/03.jpeg","assets/horse/coffee/01.jpeg","assets/horse/coffee/02.jpeg","assets/horse/coffee/04.jpeg"],"Purple":["assets/horse/purple/01.jpeg","assets/horse/purple/02.jpeg","assets/horse/purple/03.jpeg","assets/horse/purple/04.jpeg","assets/horse/purple/05.jpeg"],"White":["assets/horse/white/03.jpeg","assets/horse/white/01.jpeg","assets/horse/white/02.jpeg","assets/horse/white/04.jpeg"]}},{"id":"sun","name":"Sun Embroidered T-Shirt","short":"Sun","gender":"Men","type":"Embroidered T-Shirt","price":599,"images":{"Black":["assets/sun/black/02.jpeg","assets/sun/black/01.jpeg","assets/sun/black/03.jpeg","assets/sun/black/04.jpeg","assets/sun/black/05.jpeg"],"Coffee":["assets/sun/coffee/03.jpeg","assets/sun/coffee/01.jpeg","assets/sun/coffee/02.jpeg","assets/sun/coffee/04.jpeg"],"Purple":["assets/sun/purple/05.jpeg","assets/sun/purple/01.jpeg","assets/sun/purple/02.jpeg","assets/sun/purple/03.jpeg","assets/sun/purple/04.jpeg"],"White":["assets/sun/white/03.jpeg","assets/sun/white/01.jpeg","assets/sun/white/02.jpeg","assets/sun/white/04.jpeg"]}},{"id":"rise","name":"Rise Printed T-Shirt","short":"Rise","gender":"Men","type":"Printed T-Shirt","price":499,"images":{"Black":["assets/rise/black/02.jpeg","assets/rise/black/01.jpeg","assets/rise/black/03.jpeg","assets/rise/black/04.jpeg"],"Coffee":["assets/rise/coffee/02.jpeg","assets/rise/coffee/01.jpeg","assets/rise/coffee/03.jpeg","assets/rise/coffee/04.jpeg"],"Purple":["assets/rise/purple/02.jpeg","assets/rise/purple/01.jpeg","assets/rise/purple/03.jpeg","assets/rise/purple/04.jpeg"],"White":["assets/rise/white/03.jpeg","assets/rise/white/01.jpeg","assets/rise/white/02.jpeg","assets/rise/white/04.jpeg"]}},{"id":"panda","name":"Panda Embroidered T-Shirt","short":"Panda","gender":"Women","type":"Embroidered T-Shirt","price":599,"images":{"Black":["assets/panda/black/02.jpeg","assets/panda/black/01.jpeg","assets/panda/black/03.jpeg","assets/panda/black/04.jpeg","assets/panda/black/05.jpeg"],"Coffee":["assets/panda/coffee/01.jpeg","assets/panda/coffee/02.jpeg","assets/panda/coffee/03.jpeg","assets/panda/coffee/04.jpeg"],"Purple":["assets/panda/purple/01.jpeg","assets/panda/purple/02.jpeg","assets/panda/purple/03.jpeg","assets/panda/purple/04.jpeg","assets/panda/purple/05.jpeg"],"White":["assets/panda/white/02.jpeg","assets/panda/white/01.jpeg","assets/panda/white/03.jpeg","assets/panda/white/04.jpeg"]}},{"id":"parrot","name":"Parrot Embroidered T-Shirt","short":"Parrot","gender":"Women","type":"Embroidered T-Shirt","price":599,"images":{"Black":["assets/parrot/black/01.jpeg","assets/parrot/black/02.jpeg","assets/parrot/black/03.jpeg","assets/parrot/black/04.jpeg"],"Coffee":["assets/parrot/coffee/02.jpeg","assets/parrot/coffee/01.jpeg","assets/parrot/coffee/03.jpeg","assets/parrot/coffee/04.jpeg"],"Purple":["assets/parrot/purple/01.jpeg","assets/parrot/purple/02.jpeg","assets/parrot/purple/03.jpeg","assets/parrot/purple/04.jpeg"],"White":["assets/parrot/white/04.jpeg","assets/parrot/white/01.jpeg","assets/parrot/white/02.jpeg","assets/parrot/white/03.jpeg"]}},{"id":"passion","name":"Passion Printed T-Shirt","short":"Passion","gender":"Women","type":"Printed T-Shirt","price":499,"images":{"Black":["assets/passion/black/01.jpeg","assets/passion/black/02.jpeg","assets/passion/black/03.jpeg","assets/passion/black/04.jpeg","assets/passion/black/05.jpeg"],"Coffee":["assets/passion/coffee/02.jpeg","assets/passion/coffee/01.jpeg","assets/passion/coffee/03.jpeg","assets/passion/coffee/04.jpeg"],"Purple":["assets/passion/purple/01.jpeg","assets/passion/purple/02.jpeg","assets/passion/purple/03.jpeg","assets/passion/purple/04.jpeg","assets/passion/purple/05.jpeg"],"White":["assets/passion/white/03.jpeg","assets/passion/white/01.jpeg","assets/passion/white/02.jpeg","assets/passion/white/04.jpeg"]}},{"id":"blue-flower","name":"Blue Flower Embroidered Co-ord Set","short":"Blue Flower","gender":"Women","type":"Embroidered Co-ord Set","price":699,"images":{"default":["assets/blue-flower/01.jpeg","assets/blue-flower/02.jpeg","assets/blue-flower/03.jpeg","assets/blue-flower/04.jpeg"]}},{"id":"pink-fish","name":"Pink Fish Embroidered Co-ord Set","short":"Pink Fish","gender":"Women","type":"Embroidered Co-ord Set","price":699,"images":{"default":["assets/pink-fish/01.jpeg","assets/pink-fish/02.jpeg","assets/pink-fish/03.jpeg","assets/pink-fish/04.jpeg"]}},{"id":"red-bokeh","name":"Red Bokeh Embroidered Co-ord Set","short":"Red Bokeh","gender":"Women","type":"Embroidered Co-ord Set","price":699,"images":{"default":["assets/red-bokeh/01.jpeg","assets/red-bokeh/02.jpeg","assets/red-bokeh/03.jpeg","assets/red-bokeh/04.jpeg"]}}],"sizes":{"Men T-Shirt":[["L","40","27","8"],["XL","44","28","8.5"],["XXL","46","29","9"]],"Women T-Shirt":[["L","38","22","6.5"],["XL","40","23","7.5"],["XXL","42","25","8"]],"Women Co-ord Set":[["L","38","24","34","36","19","27"],["XL","40","25","35","38","20","27"],["XXL","42","26","36","40","21","27"]]}};
+const P=D.products,WA='917490097263',$=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const inr=n=>'₹'+n.toLocaleString('en-IN'),CLR={Black:'#111',Coffee:'#5a3a2a',Purple:'#6b3fa0',White:'#fff'};
+const first=(p,c)=>(p.images[c||'Black']||p.images.default)[0];
+let cart=JSON.parse(localStorage.getItem('anyul_cart')||'[]');
+const save=()=>{localStorage.setItem('anyul_cart',JSON.stringify(cart));$('#cc').textContent=cart.reduce((a,l)=>a+l.q,0)||''};
+const toast=m=>{const t=$('#tt');t.textContent=m;t.classList.add('on');clearTimeout(toast.h);toast.h=setTimeout(()=>t.classList.remove('on'),2200)};
+const isCo=p=>p.type.includes('Co-ord'),short=p=>isCo(p)?'Co-ord Set':p.type.replace(' T-Shirt','')+' Tee';
+function card(p,tag){const c=p.images.Black||p.images.default,dots=p.images.Black?`<div class="dots2">${Object.keys(CLR).map(k=>`<i style="background:${CLR[k]}" title="${k}"></i>`).join('')}</div>`:'';
+return `<a class="card" href="#/p/${p.id}"><div class="ci">${tag?`<span class="tag">${tag}</span>`:''}<img src="${c[0]}" alt="${p.name}" loading="lazy"><img src="${c[1]||c[0]}" alt="" loading="lazy"></div><div class="cm">${p.gender} · ${short(p)}</div><div class="cn">${p.name}</div><div class="cp">${inr(p.price)}</div>${dots}</a>`}
+const sec=(k,t,arr,tagf)=>`<section class="sec"><div class="w"><div class="sh"><div class="eyebrow">${k}</div><h2>${t}</h2></div><div class="grid">${arr.map(p=>card(p,tagf)).join('')}</div></div></section>`;
+function foot(){return `<div class="feat w"><div><b>Easy Ordering</b><span>Pick colour &amp; size, chat with us</span></div><div><b>Embroidered Detail</b><span>Made with care, piece by piece</span></div><div><b>Pay Your Way</b><span>Confirm payment on WhatsApp</span></div><div><b>Friendly Support</b><span>We reply on WhatsApp &amp; Instagram</span></div></div>
+<footer><div class="w fg"><div><img src="logo.jpg" alt="Anyul Creation"><p>Anyul Creation brings embroidery, prints and everyday statements together for men and women.</p></div>
+<div><h4>Shop</h4><ul><li><a href="#/shop/Men">Men</a></li><li><a href="#/shop/Women">Women</a></li><li><a href="#/shop/Co-ord">Co-ord Sets</a></li><li><a href="#/shop">All Products</a></li></ul></div>
+<div><h4>Company</h4><ul><li><a href="#/about">Our Story</a></li><li><a href="https://www.instagram.com/anyulcreation/" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://www.facebook.com/anyulcreation1" target="_blank" rel="noopener">Facebook</a></li><li><a href="https://www.threads.net/@anyulcreation" target="_blank" rel="noopener">Threads</a></li></ul></div>
+<div><h4>Get in touch</h4><ul><li><a href="https://wa.me/${WA}" target="_blank" rel="noopener">WhatsApp · +91 74900 97263</a></li><li><a href="https://ig.me/m/anyulcreation" target="_blank" rel="noopener">Instagram DM</a></li><li><a href="mailto:anyulcreation@gmail.com">anyulcreation@gmail.com</a></li></ul></div></div>
+<div class="w cp2"><span>© ${new Date().getFullYear()} Anyul Creation</span><span>Embroidery · Prints · Everyday Statements</span></div></footer>`}
+const byId=i=>P.find(p=>p.id===i);
+    const SL = [
+        ['hero.jpg', 'Anyul Creation', 'Wear Your Statement', 'Embroidered details and expressive prints for men and women.', '#/shop'],
+        [byId('panda').images.Purple[0], 'Women', 'Little Details, Big Character', 'Embroidered tees in four easy colours.', '#/shop/Women'],
+        ['coordset banner.jpeg', 'Co-ord Sets', 'Matching, Effortlessly', 'Embroidered co-ord sets for every day.', '#/shop/Co-ord']
+    ];
+let st;function slides(){let i=0;const s=$$('.slide'),d=$$('.dots button'),go=n=>{i=n;s.forEach((x,k)=>x.classList.toggle('on',k==n));d.forEach((x,k)=>x.classList.toggle('on',k==n))};d.forEach((b,k)=>b.onclick=()=>{go(k);clearInterval(st)});clearInterval(st);st=setInterval(()=>go((i+1)%s.length),5500)}
+function home(){const men=P.filter(p=>p.gender=='Men'),wm=P.filter(p=>p.gender=='Women'&&!isCo(p));
+return `<section class="hero">${SL.map((s,i)=>`<div class="slide ${i?'':'on'}"><img src="${s[0]}" alt="" style="object-position:${i?'top':'center'}"><div class="w hcopy"><div class="eyebrow">${s[1]}</div><h1>${s[2]}</h1><p>${s[3]}</p><div><a class="btn" href="${s[4]}">Shop now</a></div></div></div>`).join('')}<div class="dots">${SL.map((_,i)=>`<button class="${i?'':'on'}" aria-label="Slide ${i+1}"></button>`).join('')}</div></section>
+<section class="sec"><div class="w"><div class="sh"><div class="eyebrow">Top Collection</div><h2>Popular Collections</h2></div><div class="cols">
+<a class="col" href="#/shop/Women"><img src="${byId('panda').images.Purple[0]}" alt="Women"><div class="cc"><div class="eyebrow">For Her</div><h3>Women</h3><span>Shop now</span></div></a>
+<a class="col" href="#/shop/Men"><img src="${byId('horse').images.Black[0]}" alt="Men"><div class="cc"><div class="eyebrow">For Him</div><h3>Men</h3><span>Shop now</span></div></a>
+<a class="col t" href="#/shop/Co-ord"><img src="${byId('blue-flower').images.default[0]}" alt="Co-ord sets"><div class="cc"><div class="eyebrow">Signature Detail</div><h3>Co-ord Sets</h3><span>Explore</span></div></a>
+<a class="col all" href="#/shop"><img src="hero.jpg" alt="All Products"><div class="cc"><div class="eyebrow">Explore Everything</div><h3>All Products</h3><span>Shop now</span></div></a></div></div></section>
+${sec('Top Products','Best Sellers',[byId('horse'),byId('panda'),byId('sun'),byId('parrot')])}
+<section class="split"><img src="${byId('parrot').images.Purple[0]}" alt="Anyul embroidered tee" loading="lazy"><div class="sc"><div class="eyebrow">Anyul Creation</div><h2>Unleash your style potential.</h2><p>Embroidered and printed pieces designed to add character to your everyday wardrobe. Choose your colour and size — we handle the rest on WhatsApp.</p><a class="btn alt" href="#/shop">Shop the collection</a></div></section>
+${sec('Latest Products','New Arrivals',[byId('blue-flower'),byId('pink-fish'),byId('red-bokeh'),byId('passion')],'New')}
+<div class="w" style="text-align:center;padding-bottom: 100px;"><a class="btn alt" href="#/shop">View all products</a></div>${foot()}`}
+let F={g:'all',s:'new'};
+function shop(g){F.g=g||'all';const b=['all','Men','Women','Co-ord'];
+return `<div class="head"><div class="eyebrow">Anyul Creation</div><h1>${{Men:"Men's Collection",Women:"Women's Collection",'Co-ord':'Co-ord Sets'}[F.g]||'All Products'}</h1><p>Embroidered T-shirts, printed T-shirts and co-ord sets.</p></div><div class="w"><div class="bar">${b.map(x=>`<button class="chip ${x==F.g?'on':''}" data-g="${x}">${x=='all'?'All':x=='Co-ord'?'Co-ord Sets':x}</button>`).join('')}<select id="so" aria-label="Sort"><option value="new">Featured</option><option value="lo" ${F.s=='lo'?'selected':''}>Price: low to high</option><option value="hi" ${F.s=='hi'?'selected':''}>Price: high to low</option></select><span class="cnt" id="ct"></span></div><div class="grid" id="sg"></div></div>${foot()}`}
+function fill(){let a=P.filter(p=>F.g=='all'||(F.g=='Co-ord'?isCo(p):p.gender==F.g));if(F.s=='lo')a=[...a].sort((x,y)=>x.price-y.price);if(F.s=='hi')a=[...a].sort((x,y)=>y.price-x.price);$('#sg').innerHTML=a.map(p=>card(p)).join('')||'<div class="empty">No products found.</div>';$('#ct').textContent=a.length+' products'}
+function shopBind(){$$('.chip').forEach(b=>b.onclick=()=>location.hash='#/shop'+(b.dataset.g=='all'?'':'/'+b.dataset.g));$('#so').onchange=e=>{F.s=e.target.value;fill()};fill()}
+let cur,col,siz;
+function size(p){const k=isCo(p)?'Women Co-ord Set':p.gender+' T-Shirt',r=D.sizes[k],h=isCo(p)?['Size','Chest','Length','Waist','Hip','Thigh','Inseam']:['Size','Chest','Length','Sleeve'];return `<div class="tw"><table><tr>${h.map(x=>`<th>${x}</th>`).join('')}</tr>${r.map(x=>`<tr>${x.map((v,i)=>`<td>${i?v+'"':'<b>'+v+'</b>'}</td>`).join('')}</tr>`).join('')}</table></div>`}
+function prod(id){const p=byId(id);if(!p)return '<div class="w empty">Product not found. <a href="#/shop"><u>Browse all</u></a></div>';cur=p;col=p.images.Black?'Black':'default';siz='L';
+const rel=P.filter(x=>x.id!=id&&x.gender==p.gender).slice(0,4);
+return `<div class="w"><div class="bc"><a href="#/">Home</a> / <a href="#/shop">Shop</a> / ${p.name}</div><div class="pp"><div class="gal"><div class="th" id="th"></div><div class="mainimg"><img id="mi" alt="${p.name}"></div></div>
+<div class="info"><div class="eyebrow">${p.gender} · ${p.type}</div><h1>${p.name}</h1><div class="price">${inr(p.price)}</div><div class="tax">Order and pay securely via WhatsApp</div>
+${p.images.Black?`<div class="lbl">Colour: <span id="cl">Black</span></div><div class="sw">${Object.keys(CLR).map(k=>`<button data-c="${k}" class="${k=='Black'?'on':''}" style="background:${CLR[k]}" aria-label="${k}"></button>`).join('')}</div>`:''}
+<div class="lbl">Size: <span id="zl">L</span></div><div class="sz">${['L','XL','XXL'].map(s=>`<button data-z="${s}" class="${s=='L'?'on':''}">${s}</button>`).join('')}</div>
+<div class="lbl">Quantity</div><div class="qty"><button id="qm" aria-label="Less">−</button><b id="qn">1</b><button id="qp" aria-label="More">+</button></div>
+<div class="acts"><button class="btn block" id="add">Add to bag</button><a class="btn wa block" id="buy" target="_blank" rel="noopener">Buy now on WhatsApp</a></div>
+<details open><summary>Size chart</summary>${size(p)}</details><details><summary>Ordering</summary><p style="color:var(--mut);margin:8px 0">Select colour and size, add to bag, then send your order on WhatsApp. We'll confirm availability, payment and delivery with you directly.</p></details></div></div>
+<div class="sh" style="margin-top:40px"><h2>You may also like</h2></div><div class="grid">${rel.map(x=>card(x)).join('')}</div></div>${foot()}`}
+const line=(l,p)=>`${p.name} — ${l.c=='default'?'':l.c+', '}Size ${l.z} × ${l.q} = ${inr(p.price*l.q)}`;
+function prodBind(){let q=1;const g=()=>cur.images[col],show=i=>{$('#mi').src=g()[i];$$('#th button').forEach((b,k)=>b.classList.toggle('on',k==i))},
+draw=()=>{$('#th').innerHTML=g().map((s,i)=>`<button aria-label="Image ${i+1}"><img src="${s}" alt=""></button>`).join('');$$('#th button').forEach((b,i)=>b.onclick=()=>show(i));show(0)},
+upd=()=>{$('#buy').href=`https://wa.me/${WA}?text=`+encodeURIComponent(`Hello Anyul Creation, I want to order:\n${line({c:col,z:siz,q},cur)}`)};
+$$('[data-c]').forEach(b=>b.onclick=()=>{col=b.dataset.c;$$('[data-c]').forEach(x=>x.classList.toggle('on',x==b));$('#cl').textContent=col;draw();upd()});
+$$('[data-z]').forEach(b=>b.onclick=()=>{siz=b.dataset.z;$$('[data-z]').forEach(x=>x.classList.toggle('on',x==b));$('#zl').textContent=siz;upd()});
+$('#qm').onclick=()=>{q=Math.max(1,q-1);$('#qn').textContent=q;upd()};$('#qp').onclick=()=>{q=Math.min(10,q+1);$('#qn').textContent=q;upd()};
+$('#add').onclick=()=>{const f=cart.find(l=>l.id==cur.id&&l.c==col&&l.z==siz);f?f.q+=q:cart.push({id:cur.id,c:col,z:siz,q});save();drawCart();toast('Added to your bag');open('#cO')};draw();upd()}
+function about(){return `<div class="ab"><div class="eyebrow">Our Story</div><h1>Details that feel personal.</h1><p>Anyul Creation makes embroidered and printed everyday pieces for men and women — expressive motifs, wearable colours and easy silhouettes.</p><p>Pick a design, choose your colour and size, and message us on WhatsApp or Instagram. We'll take care of the rest.</p><a class="btn" href="#/shop">Shop the collection</a></div>${foot()}`}
+function drawCart(){const t=cart.reduce((a,l)=>a+byId(l.id).price*l.q,0);
+$('#cB').innerHTML=cart.length?cart.map((l,i)=>{const p=byId(l.id);return `<div class="ln"><a href="#/p/${p.id}"><img src="${first(p,l.c)}" alt=""></a><div><b>${p.name}</b><br><small>${l.c=='default'?'':l.c+' · '}Size ${l.z}</small><div class="row" style="margin-top:8px;justify-content:space-between"><div class="qty"><button data-m="${i}" aria-label="Less">−</button><b>${l.q}</b><button data-a="${i}" aria-label="More">+</button></div><b>${inr(p.price*l.q)}</b></div><button class="rm" data-r="${i}">Remove</button></div></div>`}).join(''):'<div class="empty">Your bag is empty.<br><br><a class="btn" href="#/shop" data-x>Start shopping</a></div>';
+$('#cF').innerHTML=cart.length?`<div class="tot"><span>Total</span><span>${inr(t)}</span></div><a class="btn wa block" target="_blank" rel="noopener" href="https://wa.me/${WA}?text=${encodeURIComponent('Hello Anyul Creation, I want to order:\n'+cart.map(l=>line(l,byId(l.id))).join('\n')+'\nTotal: '+inr(t))}">Order on WhatsApp</a><small style="color:var(--mut);text-align:center">Delivery &amp; payment confirmed on WhatsApp</small>`:'';
+$$('[data-m]').forEach(b=>b.onclick=()=>{const l=cart[b.dataset.m];if(--l.q<1)cart.splice(b.dataset.m,1);save();drawCart()});$$('[data-a]').forEach(b=>b.onclick=()=>{cart[b.dataset.a].q++;save();drawCart()});$$('[data-r]').forEach(b=>b.onclick=()=>{cart.splice(b.dataset.r,1);save();drawCart()});$$('#cB [data-x]').forEach(b=>b.onclick=closeAll)}
+const open=s=>{closeAll();$(s).classList.add('on');document.body.style.overflow='hidden'},closeAll=()=>{$$('.ov').forEach(o=>o.classList.remove('on'));document.body.style.overflow=''};
+$('#sBtn').onclick=()=>{open('#sO');$('#sI').focus()};$('#cBtn').onclick=()=>open('#cO');$('#burger').onclick=()=>open('#mO');
+$$('.ov').forEach(o=>o.onclick=e=>{if(e.target==o||e.target.closest('[data-x]')||e.target.closest('.mm a')||e.target.closest('.sr'))closeAll()});
+document.onkeydown=e=>{if(e.key=='Escape')closeAll()};
+$('#sI').oninput=e=>{const q=e.target.value.trim().toLowerCase(),r=q?P.filter(p=>(p.name+' '+p.gender+' '+p.type).toLowerCase().includes(q)):[];$('#sR').innerHTML=q?(r.map(p=>`<a class="sr" href="#/p/${p.id}"><img src="${first(p)}" alt=""><div><b>${p.name}</b><br>${inr(p.price)}</div></a>`).join('')||'<div class="empty">No matching products.</div>'):''};
+function route(){const h=(location.hash||'#/').split('/'),a=$('#app');let n='home';closeAll();
+if(h[1]=='p'){a.innerHTML=prod(h[2]);prodBind();n=''}else if(h[1]=='shop'){const g=decodeURIComponent(h[2]||'all');a.innerHTML=shop(g);shopBind();n=g=='all'?'shop':g}else if(h[1]=='about'){a.innerHTML=about();n='about'}else{a.innerHTML=home();slides()}
+$$('nav.main a').forEach(x=>x.classList.toggle('on',x.dataset.n==n));scrollTo(0,0)}
+addEventListener('hashchange',route);save();drawCart();route();
+</script></body></html>
