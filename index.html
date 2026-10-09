@@ -2,6 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <script>/* clean URLs: figure out the folder the site lives in (works at a domain root or in a GitHub Pages /repo/ folder) */
+(function(){var p=location.pathname,m=p.match(/^(.*?\/)(?:shop|p|about)(?:\/.*)?$/);window.ANYUL_HASH=location.protocol==='file:';
+window.ANYUL_BASE=window.ANYUL_HASH?'':(m?m[1]:p.replace(/[^\/]*$/,''));if(window.ANYUL_BASE)document.write('<base href="'+window.ANYUL_BASE+'">')})();
+    </script>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Anyul Creation — Embroidery • Prints • Everyday Statements</title>
     <meta name="description" content="Embroidered and printed T-shirts and embroidered co-ord sets for men and women. Order directly on WhatsApp.">
@@ -1244,6 +1248,61 @@
 @media(max-width:900px){.rr-fin{grid-template-columns:1fr;gap:26px}.rr-img{max-height:none;max-width:420px}.rr-info{text-align:center}.rr-sws,.rr-szs{justify-content:center}.rr-ar{width:44px;height:44px}}
 @media(max-width:640px){.rr-ar{display:none}.rr-cap b{font-size:20px}}
 @media(prefers-reduced-motion:reduce){.rr *,.rr-focus,.rr-fin{transition-duration:.01s!important;animation:none!important}}
+
+/* ===== HEADER: floating rounded bar -> full-width bar when scrolled ===== */
+:root{--bar:39px}
+header{position:fixed;top:calc(var(--bar) + 14px);left:clamp(12px,5.5vw,96px);right:clamp(12px,5.5vw,96px);z-index:40;border:1px solid rgba(255,255,255,.6);border-radius:22px;background:rgba(246,244,239,.9);-webkit-backdrop-filter:blur(14px) saturate(1.3);backdrop-filter:blur(14px) saturate(1.3);box-shadow:0 12px 34px rgba(30,20,5,.16);transition:top .45s cubic-bezier(.22,.8,.2,1),left .45s cubic-bezier(.22,.8,.2,1),right .45s cubic-bezier(.22,.8,.2,1),border-radius .45s cubic-bezier(.22,.8,.2,1),background .35s,box-shadow .35s}
+header.scrolled{top:0;left:0;right:0;border-radius:0;border-color:transparent;border-bottom:1px solid var(--line);background:rgba(250,248,243,.97);box-shadow:0 8px 28px rgba(30,20,5,.1)}
+header .hd{height:74px;transition:height .35s}header.scrolled .hd{height:64px}
+header .hd.w{max-width:none;padding:0 28px;transition:height .35s,padding .35s}
+header.scrolled .hd.w{max-width:var(--max);padding:0 20px}
+header .logo img{transition:height .35s,width .35s}header.scrolled .logo img{height:48px;width:48px}
+nav.main{margin-left:auto;margin-right:10px}
+#app{padding-top:98px}body.is-home #app{padding-top:0}
+/* ===== HERO / SLIDER ===== */
+.hero{height:min(86vh,780px);min-height:560px;touch-action:pan-y}
+.slide{pointer-events:none}.slide.on{pointer-events:auto}
+.slide img{object-fit:cover;object-position:var(--pos,center)}
+.hcopy{padding-top:96px}
+/* ===== no sideways overflow ===== */
+html,body{max-width:100%;overflow-x:clip}
+.pp>*,.gal>*,.fg>div,.cols>*,.split>*,.feat>*,.grid>*{min-width:0}
+.fg li a,.fg p{overflow-wrap:anywhere}
+@media(max-width:900px){
+header{left:10px;right:10px;border-radius:18px;top:calc(var(--bar) + 10px)}
+header .hd,header.scrolled .hd{height:60px}header .hd.w,header.scrolled .hd.w{padding:0 10px}
+header .logo img,header.scrolled .logo img{height:44px;width:44px}
+#app{padding-top:86px}
+/* slider: banner on top, text underneath, so nothing is cropped away or hidden behind text */
+.hero{display:grid;height:auto;min-height:0;background:#1b1814}
+.slide{position:relative;grid-area:1/1;display:flex;flex-direction:column;inset:auto}
+.slide:after{display:none}
+.slide img{flex:none;width:100%;height:clamp(270px,76vw,430px);object-position:var(--mpos,center)}
+.hcopy{position:static;flex:1;max-width:none;justify-content:flex-start;padding:22px 22px 58px;background:#1b1814}
+.hcopy h1{font-size:clamp(27px,7.6vw,40px);line-height:1.15;margin:8px 0 10px}
+.hcopy p{font-size:15px;margin:0 0 18px}
+.dots{bottom:20px}
+.gal{grid-template-columns:minmax(0,1fr)}.pp{grid-template-columns:minmax(0,1fr)}
+}
+@media(max-width:420px){.fg{grid-template-columns:minmax(0,1fr)}.fg>div:first-child{grid-column:auto}.top{font-size:13px;padding:8px 10px}}
+
+/* hero text: line up with the page content instead of floating mid-banner */
+.hcopy{left:calc(clamp(12px,5.5vw,96px) + 28px);right:auto;width:min(560px,calc(100% - 2*(clamp(12px,5.5vw,96px) + 28px)));margin:0;padding-left:0;padding-right:0;box-sizing:border-box}
+.hcopy .btn{align-self:flex-start}
+@media(max-width:900px){
+.hcopy{left:auto;width:100%;margin:0}
+.hcopy .btn{background:#fff;color:var(--ink);border-color:#fff}.hcopy .btn:hover{background:var(--gold);border-color:var(--gold);color:#fff}
+}
+
+/* extra mobile polish */
+.col:after{background:linear-gradient(0deg,rgba(0,0,0,.78),rgba(0,0,0,.1) 70%)}
+.cc .eyebrow{text-shadow:0 1px 6px rgba(0,0,0,.5)}
+@media(max-width:900px){
+.cols{grid-template-rows:220px 220px 320px}
+.rr-head h2{font-size:clamp(24px,7.4vw,44px);letter-spacing:.1em}
+.sh h2{font-size:clamp(26px,7vw,36px)}
+}
+@media(max-width:420px){.bar{gap:8px}.chip{padding:0 16px;font-size:14px}.bar select{width:100%}}
 </style>
 </head>
 <body>
@@ -1251,8 +1310,8 @@
     <header>
         <div class="w hd">
             <button class="ib" id="burger" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M3 12h18M3 18h18" /></svg></button>
-            <a class="logo" href="#/" aria-label="Anyul Creation home"><img src="logo.png" alt="Anyul Creation"></a>
-            <nav class="main"><a href="#/" data-n="home">Home</a><a href="#/shop/Men" data-n="Men">Men</a><a href="#/shop/Women" data-n="Women">Women</a><a href="#/shop/Co-ord" data-n="Co-ord">Co-ord Sets</a><a href="#/shop" data-n="shop">All Products</a><a href="#/about" data-n="about">About</a></nav>
+            <a class="logo" href="./" aria-label="Anyul Creation home"><img src="logo.png" alt="Anyul Creation"></a>
+            <nav class="main"><a href="./" data-n="home">Home</a><a href="shop/Men" data-n="Men">Men</a><a href="shop/Women" data-n="Women">Women</a><a href="shop/Co-ord" data-n="Co-ord">Co-ord Sets</a><a href="shop" data-n="shop">All Products</a><a href="about" data-n="about">About</a></nav>
             <div class="ic">
                 <button class="ib" id="sBtn" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7" /><path d="m20 20-4-4" /></svg></button>
                 <button class="ib" id="cBtn" aria-label="Open bag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 8h14l-1 12H6L5 8Z" /><path d="M9 8a3 3 0 0 1 6 0" /></svg><span class="badge" id="cc"></span></button>
@@ -1262,7 +1321,7 @@
     <main id="app"></main>
     <div class="ov" id="sO"><div class="sb"><div class="w"><div class="row"><input id="sI" placeholder="Search T-shirts, co-ord sets…" aria-label="Search"><button class="ib" data-x aria-label="Close">✕</button></div><div id="sR"></div></div></div></div>
     <div class="ov" id="cO"><div class="dr"><div class="dh"><h3>Your Bag</h3><button class="ib" data-x aria-label="Close">✕</button></div><div class="db" id="cB"></div><div class="df" id="cF"></div></div></div>
-    <div class="ov" id="mO"><div class="mm"><button class="ib" data-x aria-label="Close" style="margin-left:auto;display:grid">✕</button><a href="#/">Home</a><a href="#/shop/Men">Men</a><a href="#/shop/Women">Women</a><a href="#/shop/Co-ord">Co-ord Sets</a><a href="#/shop">All Products</a><a href="#/about">About</a></div></div>
+    <div class="ov" id="mO"><div class="mm"><button class="ib" data-x aria-label="Close" style="margin-left:auto;display:grid">✕</button><a href="./">Home</a><a href="shop/Men">Men</a><a href="shop/Women">Women</a><a href="shop/Co-ord">Co-ord Sets</a><a href="shop">All Products</a><a href="about">About</a></div></div>
     <a class="wf" href="https://wa.me/917490097263?text=Hello%20Anyul%20Creation" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M20.1 3.9A11.3 11.3 0 0 0 12 .7 11.35 11.35 0 0 0 2.1 17.8L.7 23.3l5.6-1.4A11.35 11.35 0 0 0 23.3 12a11.3 11.3 0 0 0-3.2-8.1Zm-8.1 17.2a9.1 9.1 0 0 1-4.6-1.3l-.3-.2-3.3.8.9-3.2-.2-.3A9.15 9.15 0 1 1 12 21.1Zm5-6.8c-.3-.2-1.7-.9-2-.9-.3-.1-.5-.1-.7.2-.2.3-.7.9-.8 1.1-.2.2-.3.2-.6.1-1.6-.8-2.7-1.5-3.8-3.3-.3-.5.3-.5.8-1.6.1-.2 0-.4 0-.5l-.7-1.7c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-1 1-1 2.4s1 2.8 1.1 3c.1.2 2 3.1 4.9 4.3 2.4 1 2.4.7 2.8.7.4 0 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1Z" /></svg></a>
     <div class="toast" id="tt" role="status"></div>
     <script>
@@ -1275,21 +1334,21 @@ const save=()=>{localStorage.setItem('anyul_cart',JSON.stringify(cart));$('#cc')
 const toast=m=>{const t=$('#tt');t.textContent=m;t.classList.add('on');clearTimeout(toast.h);toast.h=setTimeout(()=>t.classList.remove('on'),2200)};
 const isCo=p=>p.type.includes('Co-ord'),short=p=>isCo(p)?'Co-ord Set':p.type.replace(' T-Shirt','')+' Tee';
 function card(p,tag){const c=p.images.Black||p.images.default,dots=p.images.Black?`<div class="dots2">${Object.keys(CLR).map(k=>`<i style="background:${CLR[k]}" title="${k}"></i>`).join('')}</div>`:'';
-return `<a class="card" href="#/p/${p.id}"><div class="ci">${tag?`<span class="tag">${tag}</span>`:''}<img src="${c[0]}" alt="${p.name}" loading="lazy"><img src="${c[1]||c[0]}" alt="" loading="lazy"></div><div class="cm">${p.gender} · ${short(p)}</div><div class="cn">${p.name}</div><div class="cp">${inr(p.price)}</div>${dots}</a>`}
+return `<a class="card" href="p/${p.id}"><div class="ci">${tag?`<span class="tag">${tag}</span>`:''}<img src="${c[0]}" alt="${p.name}" loading="lazy"><img src="${c[1]||c[0]}" alt="" loading="lazy"></div><div class="cm">${p.gender} · ${short(p)}</div><div class="cn">${p.name}</div><div class="cp">${inr(p.price)}</div>${dots}</a>`}
 const sec=(k,t,arr,tagf)=>`<section class="sec"><div class="w"><div class="sh"><div class="eyebrow">${k}</div><h2>${t}</h2></div><div class="grid">${arr.map(p=>card(p,tagf)).join('')}</div></div></section>`;
 function foot(){return `<div class="feat w" style="margin-top:70px;"><div><b>Easy Ordering</b><span>Pick colour &amp; size, chat with us</span></div><div><b>Embroidered Detail</b><span>Made with care, piece by piece</span></div><div><b>Pay Your Way</b><span>Confirm payment on WhatsApp</span></div><div><b>Friendly Support</b><span>We reply on WhatsApp &amp; Instagram</span></div></div>
 <footer><div class="w fg"><div><img src="logo.jpg" alt="Anyul Creation"><p>Anyul Creation brings embroidery, prints and everyday statements together for men and women.</p></div>
-<div><h4>Shop</h4><ul><li><a href="#/shop/Men">Men</a></li><li><a href="#/shop/Women">Women</a></li><li><a href="#/shop/Co-ord">Co-ord Sets</a></li><li><a href="#/shop">All Products</a></li></ul></div>
-<div><h4>Company</h4><ul><li><a href="#/about">Our Story</a></li><li><a href="https://www.instagram.com/anyulcreation/" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://www.facebook.com/anyulcreation1" target="_blank" rel="noopener">Facebook</a></li><li><a href="https://www.threads.net/@anyulcreation" target="_blank" rel="noopener">Threads</a></li></ul></div>
+<div><h4>Shop</h4><ul><li><a href="shop/Men">Men</a></li><li><a href="shop/Women">Women</a></li><li><a href="shop/Co-ord">Co-ord Sets</a></li><li><a href="shop">All Products</a></li></ul></div>
+<div><h4>Company</h4><ul><li><a href="about">Our Story</a></li><li><a href="https://www.instagram.com/anyulcreation/" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://www.facebook.com/anyulcreation1" target="_blank" rel="noopener">Facebook</a></li><li><a href="https://www.threads.net/@anyulcreation" target="_blank" rel="noopener">Threads</a></li></ul></div>
 <div><h4>Get in touch</h4><ul><li><a href="https://wa.me/${WA}" target="_blank" rel="noopener">WhatsApp · +91 74900 97263</a></li><li><a href="https://ig.me/m/anyulcreation" target="_blank" rel="noopener">Instagram DM</a></li><li><a href="mailto:anyulcreation@gmail.com">anyulcreation@gmail.com</a></li></ul></div></div>
 <div class="w cp2"><span>© ${new Date().getFullYear()} Anyul Creation</span><span>Embroidery · Prints · Everyday Statements</span></div></footer>`}
 const byId=i=>P.find(p=>p.id===i);
     const SL = [
-        ['hero.jpg', 'Anyul Creation', 'Wear Your Statement', 'Embroidered details and expressive prints for men and women.', '#/shop'],
-        [byId('panda').images.Purple[0], 'Women', 'Little Details, Big Character', 'Embroidered tees in four easy colours.', '#/shop/Women'],
-        ['coordset banner.jpeg', 'Co-ord Sets', 'Matching, Effortlessly', 'Embroidered co-ord sets for every day.', '#/shop/Co-ord']
+        ['hero.jpg', 'Anyul Creation', 'Wear Your Statement', 'Embroidered details and expressive prints for men and women.', 'shop'],
+        [byId('panda').images.Purple[0], 'Women', 'Little Details, Big Character', 'Embroidered tees in four easy colours.', 'shop/Women'],
+        ['coordset banner.jpeg', 'Co-ord Sets', 'Matching, Effortlessly', 'Embroidered co-ord sets for every day.', 'shop/Co-ord']
     ];
-let st;function slides(){let i=0;const s=$$('.slide'),d=$$('.dots button'),go=n=>{i=n;s.forEach((x,k)=>x.classList.toggle('on',k==n));d.forEach((x,k)=>x.classList.toggle('on',k==n))};d.forEach((b,k)=>b.onclick=()=>{go(k);clearInterval(st)});clearInterval(st);st=setInterval(()=>go((i+1)%s.length),5500)}
+let st;function slides(){let i=0;const s=$$('.slide'),d=$$('.dots button'),go=n=>{i=n;s.forEach((x,k)=>x.classList.toggle('on',k==n));d.forEach((x,k)=>x.classList.toggle('on',k==n))};d.forEach((b,k)=>b.onclick=()=>{go(k);clearInterval(st)});clearInterval(st);st=setInterval(()=>go((i+1)%s.length),5500);const hero=$('.hero');if(hero){let sx=null,sy=0;hero.addEventListener('pointerdown',e=>{sx=e.clientX;sy=e.clientY},{passive:true});hero.addEventListener('pointerup',e=>{if(sx==null)return;const dx=e.clientX-sx,dy=e.clientY-sy;sx=null;if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy)*1.4){go((i+(dx<0?1:s.length-1))%s.length);clearInterval(st)}});hero.addEventListener('pointercancel',()=>sx=null)}}
 
 /* ===== ON THE RAIL ===== */
 const RR=[{id:'horse',c:'Black'},{id:'sun',c:'Coffee'},{id:'rise',c:'Purple'},{id:'panda',c:'White'},{id:'parrot',c:'Black'},{id:'passion',c:'Coffee'},{id:'blue-flower',c:'Navy'},{id:'pink-fish',c:'Pink'},{id:'red-bokeh',c:'Red'}];
@@ -1311,7 +1370,7 @@ function rail(){return `<section class="rr" id="onrail" aria-labelledby="rrh"><d
 <div class="rr-lbl">Colours <span id="rrCn"></span></div><div class="rr-sws" id="rrSw"></div>
 <div class="rr-lbl">Sizes</div><div class="rr-szs"><span>L</span><span>XL</span><span>XXL</span></div>
 <div class="rr-tabs" role="tablist" aria-label="Photo view"><button role="tab" data-s="front" aria-selected="true">Front</button><button role="tab" data-s="back" aria-selected="false">Back</button></div>
-<a class="rr-ex" id="rrEx" href="#/p/horse">Explore product ↗</a></div></div></div></div></section>`}
+<a class="rr-ex" id="rrEx" href="p/horse">Explore product ↗</a></div></div></div></div></section>`}
 let rrCur=null,rrKey=false;
 function railBind(){const sec=$('#onrail');if(!sec)return;
 const V=$('#rrV'),T=$('#rrT'),St=$('#rrS'),F=$('#rrF'),I=$('#rrI'),its=$$('.rr-it'),N=RR.length,reduce=matchMedia('(prefers-reduced-motion:reduce)').matches,pad=n=>String(n).padStart(2,'0'),cl=(v,a,b)=>Math.min(b,Math.max(a,v));
@@ -1323,7 +1382,7 @@ pre.onload=pre.onerror=()=>{b.src=src;b.alt=`${p.name}, ${r.c}, ${S.side} view`;
 function update(dir){const r=RR[S.idx],p=byId(r.id);
 $$('.rr .rr-n').forEach(n=>n.textContent=`${pad(S.idx+1)} / ${pad(N)}`);
 $('#rrCap').innerHTML=`<b>${p.short}</b> · ${inr(p.price)}`;
-$('#rrFn').textContent=p.short;$('#rrFc').textContent=rrCat(p);$('#rrFp').textContent=inr(p.price);$('#rrEx').href=`#/p/${p.id}`;
+$('#rrFn').textContent=p.short;$('#rrFc').textContent=rrCat(p);$('#rrFp').textContent=inr(p.price);$('#rrEx').href=`p/${p.id}`;
 const cols=rrCo(r)?[r.c]:Object.keys(CLR);$('#rrCn').textContent='· '+r.c;
 $('#rrSw').innerHTML=cols.map(c=>`<button data-c="${c}" class="${c==r.c?'on':''}" style="background:${rrCol(c)}" aria-label="${c}" aria-pressed="${c==r.c}" title="${c}"></button>`).join('');
 $$('#rrSw button').forEach(b=>b.onclick=()=>{if(rrCo(r)||b.dataset.c==r.c)return;r.c=b.dataset.c;its[S.idx].querySelector('img').src=rrCut(r);$('#rrCn').textContent='· '+r.c;$$('#rrSw button').forEach(x=>{x.classList.toggle('on',x==b);x.setAttribute('aria-pressed',x==b)});photo(0)});
@@ -1357,27 +1416,27 @@ layout();update();if(matchMedia('(hover:none)').matches)$('.rr-hint').textConten
 if(!rrKey){rrKey=true;document.addEventListener('keydown',e=>{const c=rrCur;if(!c||!document.body.contains(c.sec)||document.querySelector('.ov.on'))return;if(/INPUT|TEXTAREA|SELECT/.test(e.target.tagName))return;const r=c.sec.getBoundingClientRect();if(!(r.top<innerHeight*.7&&r.bottom>innerHeight*.3))return;
 if(e.key=='ArrowLeft'){e.preventDefault();c.step(-1)}else if(e.key=='ArrowRight'){e.preventDefault();c.step(1)}else if(e.key=='Escape'&&c.focus)c.setFocus(false)})}}
 function home(){const men=P.filter(p=>p.gender=='Men'),wm=P.filter(p=>p.gender=='Women'&&!isCo(p));
-return `<section class="hero">${SL.map((s,i)=>`<div class="slide ${i?'':'on'}"><img src="${s[0]}" alt="" style="object-position:${i?'top':'center'}"><div class="w hcopy"><div class="eyebrow">${s[1]}</div><h1>${s[2]}</h1><p>${s[3]}</p><div><a class="btn" href="${s[4]}">Shop now</a></div></div></div>`).join('')}<div class="dots">${SL.map((_,i)=>`<button class="${i?'':'on'}" aria-label="Slide ${i+1}"></button>`).join('')}</div></section>
+return `<section class="hero">${SL.map((s,i)=>`<div class="slide ${i?'':'on'}"><img src="${s[0]}" alt="" style="--pos:${i?'top':'center'};--mpos:${['68% 40%','50% 0%','100% 35%'][i]}"><div class="w hcopy"><div class="eyebrow">${s[1]}</div><h1>${s[2]}</h1><p>${s[3]}</p><div><a class="btn" href="${s[4]}">Shop now</a></div></div></div>`).join('')}<div class="dots">${SL.map((_,i)=>`<button class="${i?'':'on'}" aria-label="Slide ${i+1}"></button>`).join('')}</div></section>
 ${rail()}
 <section class="sec"><div class="w"><div class="sh"><div class="eyebrow">Top Collection</div><h2>Popular Collections</h2></div><div class="cols">
-<a class="col" href="#/shop/Women"><img src="${byId('panda').images.Purple[0]}" alt="Women"><div class="cc"><div class="eyebrow">For Her</div><h3>Women</h3><span>Shop now</span></div></a>
-<a class="col" href="#/shop/Men"><img src="${byId('horse').images.Black[0]}" alt="Men"><div class="cc"><div class="eyebrow">For Him</div><h3>Men</h3><span>Shop now</span></div></a>
-<a class="col t" href="#/shop/Co-ord"><img src="${byId('blue-flower').images.default[0]}" alt="Co-ord sets"><div class="cc"><div class="eyebrow">Signature Detail</div><h3>Co-ord Sets</h3><span>Explore</span></div></a>
-<a class="col all" href="#/shop"><img src="hero.jpg" alt="All Products"><div class="cc"><div class="eyebrow">Explore Everything</div><h3>All Products</h3><span>Shop now</span></div></a></div></div></section>
+<a class="col" href="shop/Women"><img src="${byId('panda').images.Purple[0]}" alt="Women"><div class="cc"><div class="eyebrow">For Her</div><h3>Women</h3><span>Shop now</span></div></a>
+<a class="col" href="shop/Men"><img src="${byId('horse').images.Black[0]}" alt="Men"><div class="cc"><div class="eyebrow">For Him</div><h3>Men</h3><span>Shop now</span></div></a>
+<a class="col t" href="shop/Co-ord"><img src="${byId('blue-flower').images.default[0]}" alt="Co-ord sets"><div class="cc"><div class="eyebrow">Signature Detail</div><h3>Co-ord Sets</h3><span>Explore</span></div></a>
+<a class="col all" href="shop"><img src="hero.jpg" alt="All Products"><div class="cc"><div class="eyebrow">Explore Everything</div><h3>All Products</h3><span>Shop now</span></div></a></div></div></section>
 ${sec('Top Products','Best Sellers',[byId('horse'),byId('panda'),byId('sun'),byId('parrot')])}
-<section class="split"><img src="${byId('parrot').images.Purple[0]}" alt="Anyul embroidered tee" loading="lazy"><div class="sc"><div class="eyebrow">Anyul Creation</div><h2>Unleash your style potential.</h2><p>Embroidered and printed pieces designed to add character to your everyday wardrobe. Choose your colour and size — we handle the rest on WhatsApp.</p><a class="btn alt" href="#/shop">Shop the collection</a></div></section>
+<section class="split"><img src="${byId('parrot').images.Purple[0]}" alt="Anyul embroidered tee" loading="lazy"><div class="sc"><div class="eyebrow">Anyul Creation</div><h2>Unleash your style potential.</h2><p>Embroidered and printed pieces designed to add character to your everyday wardrobe. Choose your colour and size — we handle the rest on WhatsApp.</p><a class="btn alt" href="shop">Shop the collection</a></div></section>
 ${sec('Latest Products','New Arrivals',[byId('blue-flower'),byId('pink-fish'),byId('red-bokeh'),byId('passion')],'New')}
-<div class="w" style="text-align:center;padding-bottom: 100px;"><a class="btn alt" href="#/shop">View all products</a></div>${foot()}`}
+<div class="w" style="text-align:center;padding-bottom: 100px;"><a class="btn alt" href="shop">View all products</a></div>${foot()}`}
 let F={g:'all',s:'new'};
 function shop(g){F.g=g||'all';const b=['all','Men','Women','Co-ord'];
 return `<div class="head"><div class="eyebrow">Anyul Creation</div><h1>${{Men:"Men's Collection",Women:"Women's Collection",'Co-ord':'Co-ord Sets'}[F.g]||'All Products'}</h1><p>Embroidered T-shirts, printed T-shirts and co-ord sets.</p></div><div class="w"><div class="bar">${b.map(x=>`<button class="chip ${x==F.g?'on':''}" data-g="${x}">${x=='all'?'All':x=='Co-ord'?'Co-ord Sets':x}</button>`).join('')}<select id="so" aria-label="Sort"><option value="new">Featured</option><option value="lo" ${F.s=='lo'?'selected':''}>Price: low to high</option><option value="hi" ${F.s=='hi'?'selected':''}>Price: high to low</option></select><span class="cnt" id="ct"></span></div><div class="grid" id="sg"></div></div>${foot()}`}
 function fill(){let a=P.filter(p=>F.g=='all'||(F.g=='Co-ord'?isCo(p):p.gender==F.g));if(F.s=='lo')a=[...a].sort((x,y)=>x.price-y.price);if(F.s=='hi')a=[...a].sort((x,y)=>y.price-x.price);$('#sg').innerHTML=a.map(p=>card(p)).join('')||'<div class="empty">No products found.</div>';$('#ct').textContent=a.length+' products'}
-function shopBind(){$$('.chip').forEach(b=>b.onclick=()=>location.hash='#/shop'+(b.dataset.g=='all'?'':'/'+b.dataset.g));$('#so').onchange=e=>{F.s=e.target.value;fill()};fill()}
+function shopBind(){$$('.chip').forEach(b=>b.onclick=()=>go('shop'+(b.dataset.g=='all'?'':'/'+b.dataset.g)));$('#so').onchange=e=>{F.s=e.target.value;fill()};fill()}
 let cur,col,siz;
 function size(p){const k=isCo(p)?'Women Co-ord Set':p.gender+' T-Shirt',r=D.sizes[k],h=isCo(p)?['Size','Chest','Length','Waist','Hip','Thigh','Inseam']:['Size','Chest','Length','Sleeve'];return `<div class="tw"><table><tr>${h.map(x=>`<th>${x}</th>`).join('')}</tr>${r.map(x=>`<tr>${x.map((v,i)=>`<td>${i?v+'"':'<b>'+v+'</b>'}</td>`).join('')}</tr>`).join('')}</table></div>`}
-function prod(id){const p=byId(id);if(!p)return '<div class="w empty">Product not found. <a href="#/shop"><u>Browse all</u></a></div>';cur=p;col=p.images.Black?'Black':'default';siz='L';
+function prod(id){const p=byId(id);if(!p)return '<div class="w empty">Product not found. <a href="shop"><u>Browse all</u></a></div>';cur=p;col=p.images.Black?'Black':'default';siz='L';
 const rel=P.filter(x=>x.id!=id&&x.gender==p.gender).slice(0,4);
-return `<div class="w"><div class="bc"><a href="#/">Home</a> / <a href="#/shop">Shop</a> / ${p.name}</div><div class="pp"><div class="gal"><div class="th" id="th"></div><div class="mainimg"><img id="mi" alt="${p.name}"></div></div>
+return `<div class="w"><div class="bc"><a href="./">Home</a> / <a href="shop">Shop</a> / ${p.name}</div><div class="pp"><div class="gal"><div class="th" id="th"></div><div class="mainimg"><img id="mi" alt="${p.name}"></div></div>
 <div class="info"><div class="eyebrow">${p.gender} · ${p.type}</div><h1>${p.name}</h1><div class="price">${inr(p.price)}</div><div class="tax">Order and pay securely via WhatsApp</div>
 ${p.images.Black?`<div class="lbl">Colour: <span id="cl">Black</span></div><div class="sw">${Object.keys(CLR).map(k=>`<button data-c="${k}" class="${k=='Black'?'on':''}" style="background:${CLR[k]}" aria-label="${k}"></button>`).join('')}</div>`:''}
 <div class="lbl">Size: <span id="zl">L</span></div><div class="sz">${['L','XL','XXL'].map(s=>`<button data-z="${s}" class="${s=='L'?'on':''}">${s}</button>`).join('')}</div>
@@ -1393,18 +1452,24 @@ $$('[data-c]').forEach(b=>b.onclick=()=>{col=b.dataset.c;$$('[data-c]').forEach(
 $$('[data-z]').forEach(b=>b.onclick=()=>{siz=b.dataset.z;$$('[data-z]').forEach(x=>x.classList.toggle('on',x==b));$('#zl').textContent=siz;upd()});
 $('#qm').onclick=()=>{q=Math.max(1,q-1);$('#qn').textContent=q;upd()};$('#qp').onclick=()=>{q=Math.min(10,q+1);$('#qn').textContent=q;upd()};
 $('#add').onclick=()=>{const f=cart.find(l=>l.id==cur.id&&l.c==col&&l.z==siz);f?f.q+=q:cart.push({id:cur.id,c:col,z:siz,q});save();drawCart();toast('Added to your bag');open('#cO')};draw();upd()}
-function about(){return `<div class="ab"><div class="eyebrow">Our Story</div><h1>Details that feel personal.</h1><p>Anyul Creation makes embroidered and printed everyday pieces for men and women — expressive motifs, wearable colours and easy silhouettes.</p><p>Pick a design, choose your colour and size, and message us on WhatsApp or Instagram. We'll take care of the rest.</p><a class="btn" href="#/shop">Shop the collection</a></div>${foot()}`}
+function about(){return `<div class="ab"><div class="eyebrow">Our Story</div><h1>Details that feel personal.</h1><p>Anyul Creation makes embroidered and printed everyday pieces for men and women — expressive motifs, wearable colours and easy silhouettes.</p><p>Pick a design, choose your colour and size, and message us on WhatsApp or Instagram. We'll take care of the rest.</p><a class="btn" href="shop">Shop the collection</a></div>${foot()}`}
 function drawCart(){const t=cart.reduce((a,l)=>a+byId(l.id).price*l.q,0);
-$('#cB').innerHTML=cart.length?cart.map((l,i)=>{const p=byId(l.id);return `<div class="ln"><a href="#/p/${p.id}"><img src="${first(p,l.c)}" alt=""></a><div><b>${p.name}</b><br><small>${l.c=='default'?'':l.c+' · '}Size ${l.z}</small><div class="row" style="margin-top:8px;justify-content:space-between"><div class="qty"><button data-m="${i}" aria-label="Less">−</button><b>${l.q}</b><button data-a="${i}" aria-label="More">+</button></div><b>${inr(p.price*l.q)}</b></div><button class="rm" data-r="${i}">Remove</button></div></div>`}).join(''):'<div class="empty">Your bag is empty.<br><br><a class="btn" href="#/shop" data-x>Start shopping</a></div>';
+$('#cB').innerHTML=cart.length?cart.map((l,i)=>{const p=byId(l.id);return `<div class="ln"><a href="p/${p.id}"><img src="${first(p,l.c)}" alt=""></a><div><b>${p.name}</b><br><small>${l.c=='default'?'':l.c+' · '}Size ${l.z}</small><div class="row" style="margin-top:8px;justify-content:space-between"><div class="qty"><button data-m="${i}" aria-label="Less">−</button><b>${l.q}</b><button data-a="${i}" aria-label="More">+</button></div><b>${inr(p.price*l.q)}</b></div><button class="rm" data-r="${i}">Remove</button></div></div>`}).join(''):'<div class="empty">Your bag is empty.<br><br><a class="btn" href="shop" data-x>Start shopping</a></div>';
 $('#cF').innerHTML=cart.length?`<div class="tot"><span>Total</span><span>${inr(t)}</span></div><a class="btn wa block" target="_blank" rel="noopener" href="https://wa.me/${WA}?text=${encodeURIComponent('Hello Anyul Creation, I want to order:\n'+cart.map(l=>line(l,byId(l.id))).join('\n')+'\nTotal: '+inr(t))}">Order on WhatsApp</a><small style="color:var(--mut);text-align:center">Delivery &amp; payment confirmed on WhatsApp</small>`:'';
 $$('[data-m]').forEach(b=>b.onclick=()=>{const l=cart[b.dataset.m];if(--l.q<1)cart.splice(b.dataset.m,1);save();drawCart()});$$('[data-a]').forEach(b=>b.onclick=()=>{cart[b.dataset.a].q++;save();drawCart()});$$('[data-r]').forEach(b=>b.onclick=()=>{cart.splice(b.dataset.r,1);save();drawCart()});$$('#cB [data-x]').forEach(b=>b.onclick=closeAll)}
 const open=s=>{closeAll();$(s).classList.add('on');document.body.style.overflow='hidden'},closeAll=()=>{$$('.ov').forEach(o=>o.classList.remove('on'));document.body.style.overflow=''};
 $('#sBtn').onclick=()=>{open('#sO');$('#sI').focus()};$('#cBtn').onclick=()=>open('#cO');$('#burger').onclick=()=>open('#mO');
 $$('.ov').forEach(o=>o.onclick=e=>{if(e.target==o||e.target.closest('[data-x]')||e.target.closest('.mm a')||e.target.closest('.sr'))closeAll()});
 document.onkeydown=e=>{if(e.key=='Escape')closeAll()};
-$('#sI').oninput=e=>{const q=e.target.value.trim().toLowerCase(),r=q?P.filter(p=>(p.name+' '+p.gender+' '+p.type).toLowerCase().includes(q)):[];$('#sR').innerHTML=q?(r.map(p=>`<a class="sr" href="#/p/${p.id}"><img src="${first(p)}" alt=""><div><b>${p.name}</b><br>${inr(p.price)}</div></a>`).join('')||'<div class="empty">No matching products.</div>'):''};
-function route(){const h=(location.hash||'#/').split('/'),a=$('#app');let n='home';closeAll();
+$('#sI').oninput=e=>{const q=e.target.value.trim().toLowerCase(),r=q?P.filter(p=>(p.name+' '+p.gender+' '+p.type).toLowerCase().includes(q)):[];$('#sR').innerHTML=q?(r.map(p=>`<a class="sr" href="p/${p.id}"><img src="${first(p)}" alt=""><div><b>${p.name}</b><br>${inr(p.price)}</div></a>`).join('')||'<div class="empty">No matching products.</div>'):''};
+const BASE=window.ANYUL_BASE,HASHMODE=window.ANYUL_HASH;
+function curPath(){if(HASHMODE)return((location.hash||'#/').slice(1)||'/');return'/'+location.pathname.slice(BASE.length).replace(/^index\.html$/,'').replace(/\/+$/,'')}
+function go(to){const r=to.replace(/^\.?\/?/,'');if(HASHMODE){const nh='#/'+r;if(location.hash==nh)route();else location.hash=nh;return}const u=BASE+r;if(location.pathname===u||(r===''&&location.pathname===BASE+'index.html'))route();else{history.pushState(null,'',u);route()}}
+document.addEventListener('click',e=>{if(e.defaultPrevented||e.button||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;const a=e.target.closest&&e.target.closest('a[href]');if(!a||(a.target&&a.target!='_self')||a.hasAttribute('download'))return;const h=a.getAttribute('href');if(/^(\.\/?$|(shop|p|about)(\/|$))/.test(h)){e.preventDefault();go(h)}});
+function route(){routeMain();document.body.classList.toggle('is-home',!!document.querySelector('.hero'))}
+function routeMain(){const h=(curPath()||'/').split('/'),a=$('#app');let n='home';closeAll();
 if(h[1]=='p'){a.innerHTML=prod(h[2]);prodBind();n=''}else if(h[1]=='shop'){const g=decodeURIComponent(h[2]||'all');a.innerHTML=shop(g);shopBind();n=g=='all'?'shop':g}else if(h[1]=='about'){a.innerHTML=about();n='about'}else{a.innerHTML=home();slides();railBind()}
 $$('nav.main a').forEach(x=>x.classList.toggle('on',x.dataset.n==n));scrollTo(0,0)}
-addEventListener('hashchange',route);save();drawCart();route();
+addEventListener('popstate',route);if(HASHMODE)addEventListener('hashchange',route);if(!HASHMODE&&/^#\//.test(location.hash))history.replaceState(null,'',BASE+location.hash.slice(2));save();drawCart();route();
+(function(){const h=document.querySelector('header'),b=document.querySelector('.top'),m=()=>document.documentElement.style.setProperty('--bar',(b?b.offsetHeight:0)+'px'),f=()=>h.classList.toggle('scrolled',scrollY>24);m();f();addEventListener('scroll',f,{passive:true});addEventListener('resize',m)})();
 </script></body></html>
