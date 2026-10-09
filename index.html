@@ -1193,7 +1193,58 @@
                 margin-left: 0
             }
         }
-    </style>
+    
+/* ===== ON THE RAIL ===== */
+.rr{position:relative;background:linear-gradient(#f8f4ea,#f4eee1);overflow:hidden;padding:clamp(52px,7vw,96px) 0 clamp(40px,5vw,72px);scroll-margin-top:84px}
+.rr-head{text-align:center;padding:0 20px;margin-bottom:clamp(18px,3vw,38px)}
+.rr-kick{margin:0 0 10px;font-size:12px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:var(--mut)}
+.rr-head h2{font-size:clamp(32px,5.2vw,66px);font-weight:500;letter-spacing:.14em;text-transform:uppercase;padding-left:.14em}
+.rr-stage{position:relative;height:420px;transition:height .8s cubic-bezier(.22,.8,.2,1)}
+.rr-rod{position:absolute;left:0;right:0;top:22px;height:8px;z-index:1;border-radius:2px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.4) 0 1px,transparent 1px 3px),linear-gradient(#f6f6f4,#c3c4c1 48%,#85868a)}
+.rr-rod:after{content:'';position:absolute;left:0;right:0;top:100%;height:16px;background:linear-gradient(rgba(80,60,25,.2),transparent)}
+.rr-view{position:relative;z-index:2;height:100%;overflow:hidden;touch-action:pan-y;overscroll-behavior-x:contain;user-select:none;-webkit-user-select:none;cursor:grab;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+.rr-track{position:relative;height:100%}.rr-track.drag{cursor:grabbing}
+.rr-it{position:absolute;left:0;top:17px;width:var(--iw,200px);padding:0;border:0;background:none;cursor:inherit;transform-origin:50% 0;will-change:transform;transition:transform .8s cubic-bezier(.22,.8,.2,1),opacity .5s;-webkit-tap-highlight-color:transparent;touch-action:pan-y}
+.rr-track.drag .rr-it{transition:none}
+.rr-it:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+.rr-sw{display:block;transform-origin:50% 0;animation:rr-sway var(--t,7s) ease-in-out var(--d,0s) infinite}
+.rr-pv{display:block;transform-origin:50% 0;transform:rotate(calc(var(--lean,0)*1deg));transition:transform .7s cubic-bezier(.2,.9,.25,1.4)}
+.rr-track.drag .rr-pv{transition:transform .15s linear}
+.rr-it:hover .rr-pv{transform:rotate(calc(var(--lean,0)*1deg + 2.5deg))}
+.rr-h{display:block;width:78%;height:auto;margin:0 auto;pointer-events:none}
+.rr-im{display:block;width:100%;height:auto;margin-top:-9%;pointer-events:none;filter:drop-shadow(0 10px 10px rgba(50,35,15,.18));transition:opacity .25s}
+@keyframes rr-sway{0%,100%{transform:rotate(-.7deg)}50%{transform:rotate(.7deg)}}
+.rr-ar{position:absolute;z-index:60;top:34%;width:52px;height:52px;border-radius:50%;border:1px solid #cfc6b4;background:rgba(251,248,241,.9);font-size:20px;display:grid;place-items:center;transition:.25s,opacity .4s}.rr-ar:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.rr-ar.l{left:clamp(12px,3vw,48px)}.rr-ar.r{right:clamp(12px,3vw,48px)}
+.rr-bar{text-align:center;max-height:160px;overflow:hidden;transition:max-height .6s,opacity .4s,margin .6s}
+.rr-cnt{display:inline-flex;align-items:center;gap:18px;font-variant-numeric:tabular-nums;letter-spacing:.14em;font-size:15px}
+.rr-cnt button{width:44px;height:44px;border-radius:50%;border:1px solid #cfc6b4;background:none;font-size:18px;transition:.25s}.rr-cnt button:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.rr-cap{margin:12px 0 0;font-size:16px;color:var(--mut)}.rr-cap b{font-family:'Playfair Display',Georgia,serif;font-weight:500;font-size:22px;color:var(--ink)}
+.rr-hint{margin:6px 0 0;font-size:13px;color:#9a8f7c}
+.is-focus .rr-bar{max-height:0;opacity:0;margin:0}.is-focus .rr-ar{opacity:0;pointer-events:none}.is-focus .rr-view{cursor:default}
+.rr-focus{display:grid;grid-template-rows:0fr;visibility:hidden;transition:grid-template-rows .85s cubic-bezier(.22,.8,.2,1),visibility 0s .85s}
+.is-focus .rr-focus{grid-template-rows:1fr;visibility:visible;transition:grid-template-rows .85s cubic-bezier(.22,.8,.2,1),visibility 0s}
+.rr-fo{min-height:0;overflow:hidden}
+.rr-fin{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,6vw,90px);align-items:center;max-width:1080px;margin:0 auto;padding:clamp(28px,4vw,52px) 20px 8px;opacity:0;transform:translateY(26px);transition:opacity .5s,transform .6s}
+.is-focus .rr-fin{opacity:1;transform:none;transition:opacity .7s .35s,transform .8s .35s}
+.rr-img{position:relative;aspect-ratio:3/4;width:100%;max-height:74vh;margin:0 auto;background:linear-gradient(#efe8da,#e5dac6);overflow:hidden;touch-action:pan-y;cursor:grab;user-select:none;-webkit-user-select:none}
+.rr-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;pointer-events:none;transition:opacity .6s ease,transform .8s cubic-bezier(.22,.8,.2,1)}
+.rr-back{border:0;background:none;padding:6px 0;font-size:14px;color:var(--mut);margin-bottom:14px}.rr-back:hover{color:var(--ink)}
+.rr-info h3{font-size:clamp(38px,4.6vw,64px);font-weight:500;line-height:1.05}
+.rr-cat{margin:10px 0 0;color:var(--mut);font-size:17px}.rr-price{margin:8px 0 0;font-size:24px;font-weight:700}
+.rr-cnt.c2{margin:20px 0 4px}
+.rr-lbl{margin:22px 0 10px;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}.rr-lbl span{font-weight:400;text-transform:none;letter-spacing:0;color:var(--mut)}
+.rr-sws{display:flex;gap:12px;flex-wrap:wrap}.rr-sws button{width:38px;height:38px;border-radius:50%;border:1px solid #cfc6b4;padding:0;box-shadow:inset 0 0 0 3px #f8f4ea;transition:.2s}.rr-sws button.on{outline:2px solid var(--ink);outline-offset:2px}.rr-sws button:only-child{cursor:default}
+.rr-szs{display:flex;gap:10px}.rr-szs span{min-width:56px;height:42px;display:grid;place-items:center;border:1px solid #cfc6b4;font-size:15px}
+.rr-tabs{display:inline-flex;gap:30px;margin:26px 0 22px;border-bottom:1px solid #d8cfbd}
+.rr-tabs button{position:relative;padding:10px 2px 12px;border:0;background:none;font-size:15px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);transition:color .25s}
+.rr-tabs button:after{content:'';position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--ink);transform:scaleX(0);transition:transform .35s}
+.rr-tabs button[aria-selected=true]{color:var(--ink)}.rr-tabs button[aria-selected=true]:after{transform:none}
+.rr-ex{display:flex;align-items:center;justify-content:center;width:100%;min-height:60px;border:1.5px solid var(--ink);font-size:15px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;transition:.3s}.rr-ex:hover{background:var(--ink);color:#fff}
+@media(max-width:900px){.rr-fin{grid-template-columns:1fr;gap:26px}.rr-img{max-height:none;max-width:420px}.rr-info{text-align:center}.rr-sws,.rr-szs{justify-content:center}.rr-ar{width:44px;height:44px}}
+@media(max-width:640px){.rr-ar{display:none}.rr-cap b{font-size:20px}}
+@media(prefers-reduced-motion:reduce){.rr *,.rr-focus,.rr-fin{transition-duration:.01s!important;animation:none!important}}
+</style>
 </head>
 <body>
     <div class="top">Order directly on <a href="https://wa.me/917490097263" target="_blank" rel="noopener">WhatsApp +91 74900 97263</a> · Embroidered &amp; printed pieces</div>
@@ -1239,8 +1290,75 @@ const byId=i=>P.find(p=>p.id===i);
         ['coordset banner.jpeg', 'Co-ord Sets', 'Matching, Effortlessly', 'Embroidered co-ord sets for every day.', '#/shop/Co-ord']
     ];
 let st;function slides(){let i=0;const s=$$('.slide'),d=$$('.dots button'),go=n=>{i=n;s.forEach((x,k)=>x.classList.toggle('on',k==n));d.forEach((x,k)=>x.classList.toggle('on',k==n))};d.forEach((b,k)=>b.onclick=()=>{go(k);clearInterval(st)});clearInterval(st);st=setInterval(()=>go((i+1)%s.length),5500)}
+
+/* ===== ON THE RAIL ===== */
+const RR=[{id:'horse',c:'Black'},{id:'sun',c:'Coffee'},{id:'rise',c:'Purple'},{id:'panda',c:'White'},{id:'parrot',c:'Black'},{id:'passion',c:'Coffee'},{id:'blue-flower',c:'Navy'},{id:'pink-fish',c:'Pink'},{id:'red-bokeh',c:'Red'}];
+/* [front,back] photo numbers per colour, from the existing assets/ folders */
+const RRF={horse:{Black:['02','01'],Coffee:['03','01'],Purple:['01','02'],White:['03','01']},sun:{Black:['02','01'],Coffee:['03','01'],Purple:['05','01'],White:['03','01']},rise:{Black:['02','01'],Coffee:['02','01'],Purple:['02','01'],White:['03','01']},panda:{Black:['02','01'],Coffee:['01','02'],Purple:['01','02'],White:['02','01']},parrot:{Black:['01','02'],Coffee:['02','01'],Purple:['01','02'],White:['04','01']},passion:{Black:['01','02'],Coffee:['02','01'],Purple:['01','02'],White:['03','01']},'blue-flower':['01','02'],'pink-fish':['01','02'],'red-bokeh':['01','02']};
+const RRC={Navy:'#1f2f5c',Pink:'#d63b8a',Red:'#a8132b'},rrCol=c=>CLR[c]||RRC[c];
+const rrCo=r=>!!byId(r.id).images.default;
+const rrCut=r=>rrCo(r)?`assets/rail/${r.id}.webp`:`assets/rail/${r.id}-${r.c.toLowerCase()}.webp`;
+const rrPhoto=(r,side)=>{const k=side=='back'?1:0;return rrCo(r)?`assets/${r.id}/${RRF[r.id][k]}.jpeg`:`assets/${r.id}/${r.c.toLowerCase()}/${RRF[r.id][r.c][k]}.jpeg`};
+const rrCat=p=>(p.gender=='Men'?"Men's ":"Women's ")+p.type;
+const RRH='<svg class="rr-h" viewBox="0 0 100 52" aria-hidden="true"><path d="M45.5 11c0-9.5 9-9.5 9-1.5" fill="none" stroke="#8f908c" stroke-width="1.7" stroke-linecap="round"/><path d="M50 14v16" stroke="#a9a8a4" stroke-width="1.3"/><rect x="44" y="30" width="12" height="7" rx="1.8" fill="#7b4b2b"/><path d="M50 37 6 52M50 37l44 15" stroke="#7b4b2b" stroke-width="3.2" stroke-linecap="round"/></svg>';
+function rail(){return `<section class="rr" id="onrail" aria-labelledby="rrh"><div class="rr-head"><p class="rr-kick">On the rail</p><h2 id="rrh">Anyul Creation</h2></div>
+<div class="rr-stage" id="rrS"><div class="rr-rod" aria-hidden="true"></div><div class="rr-view" id="rrV" role="group" aria-label="Clothing rail. Drag, or use the arrow buttons."><div class="rr-track" id="rrT">${RR.map((r,i)=>{const p=byId(r.id);return `<button class="rr-it" data-i="${i}" style="--d:${-(i*1.37%6).toFixed(2)}s;--t:${(6+(i*0.7)%3).toFixed(1)}s" aria-label="${p.name}, ${inr(p.price)}"><span class="rr-sw"><span class="rr-pv">${RRH}<img class="rr-im" src="${rrCut(r)}" alt="" draggable="false" width="520" height="480"></span></span></button>`}).join('')}</div></div>
+<button class="rr-ar l" data-rr="-1" aria-label="Previous piece">←</button><button class="rr-ar r" data-rr="1" aria-label="Next piece">→</button></div>
+<div class="rr-bar"><div class="rr-cnt"><button data-rr="-1" aria-label="Previous piece">←</button><span class="rr-n" aria-live="polite">01 / 09</span><button data-rr="1" aria-label="Next piece">→</button></div><p class="rr-cap" id="rrCap"></p><p class="rr-hint">Drag the rail, or tap a piece to open it</p></div>
+<div class="rr-focus" id="rrF"><div class="rr-fo"><div class="rr-fin"><div class="rr-img" id="rrI"><img alt="" draggable="false"><img alt="" draggable="false" style="opacity:0"></div>
+<div class="rr-info"><button class="rr-back" data-rx>← Back to the rail</button><h3 id="rrFn"></h3><p class="rr-cat" id="rrFc"></p><p class="rr-price" id="rrFp"></p>
+<div class="rr-cnt c2"><button data-rr="-1" aria-label="Previous piece">←</button><span class="rr-n">01 / 09</span><button data-rr="1" aria-label="Next piece">→</button></div>
+<div class="rr-lbl">Colours <span id="rrCn"></span></div><div class="rr-sws" id="rrSw"></div>
+<div class="rr-lbl">Sizes</div><div class="rr-szs"><span>L</span><span>XL</span><span>XXL</span></div>
+<div class="rr-tabs" role="tablist" aria-label="Photo view"><button role="tab" data-s="front" aria-selected="true">Front</button><button role="tab" data-s="back" aria-selected="false">Back</button></div>
+<a class="rr-ex" id="rrEx" href="#/p/horse">Explore product ↗</a></div></div></div></div></section>`}
+let rrCur=null,rrKey=false;
+function railBind(){const sec=$('#onrail');if(!sec)return;
+const V=$('#rrV'),T=$('#rrT'),St=$('#rrS'),F=$('#rrF'),I=$('#rrI'),its=$$('.rr-it'),N=RR.length,reduce=matchMedia('(prefers-reduced-motion:reduce)').matches,pad=n=>String(n).padStart(2,'0'),cl=(v,a,b)=>Math.min(b,Math.max(a,v));
+const S={idx:0,pos:0,focus:false,side:'front',li:0,pr:240,iw:200,W:0,sec};rrCur=S;
+function render(pos){const k=S.focus?.55:1,pitch=S.pr*k,cx=S.W/2;its.forEach((el,i)=>{const d=Math.abs(i-pos),sc=(1.3-.5*Math.min(1,d))*k;el.style.transform=`translate3d(${cx+(i-pos)*pitch-S.iw/2}px,0,0) scale(${sc})`;el.style.opacity=1-.14*Math.min(1,d);el.style.zIndex=100-Math.round(d*10);el.setAttribute('aria-current',i==S.idx?'true':'false')})}
+function layout(){const W=V.clientWidth||innerWidth;S.W=W;S.pr=W<640?W*.5:W<1024?W/3.6:Math.min(300,W/5);S.iw=Math.round(S.pr*.82);T.style.setProperty('--iw',S.iw+'px');St.style.height=(S.focus?Math.round(S.iw*.9+38):Math.round(S.iw*1.62+46))+'px';render(S.pos)}
+function photo(dir){const r=RR[S.idx],p=byId(r.id),src=rrPhoto(r,S.side),L=I.querySelectorAll('img'),a=L[S.li],b=L[1-S.li],pre=new Image();
+pre.onload=pre.onerror=()=>{b.src=src;b.alt=`${p.name}, ${r.c}, ${S.side} view`;b.style.transition='none';b.style.opacity=0;b.style.transform=`translateX(${dir*28}px) scale(1.04)`;void b.offsetWidth;b.style.transition='';b.style.opacity=1;b.style.transform='none';a.style.opacity=0;a.style.transform=`translateX(${-dir*28}px)`;S.li=1-S.li};pre.src=src}
+function update(dir){const r=RR[S.idx],p=byId(r.id);
+$$('.rr .rr-n').forEach(n=>n.textContent=`${pad(S.idx+1)} / ${pad(N)}`);
+$('#rrCap').innerHTML=`<b>${p.short}</b> · ${inr(p.price)}`;
+$('#rrFn').textContent=p.short;$('#rrFc').textContent=rrCat(p);$('#rrFp').textContent=inr(p.price);$('#rrEx').href=`#/p/${p.id}`;
+const cols=rrCo(r)?[r.c]:Object.keys(CLR);$('#rrCn').textContent='· '+r.c;
+$('#rrSw').innerHTML=cols.map(c=>`<button data-c="${c}" class="${c==r.c?'on':''}" style="background:${rrCol(c)}" aria-label="${c}" aria-pressed="${c==r.c}" title="${c}"></button>`).join('');
+$$('#rrSw button').forEach(b=>b.onclick=()=>{if(rrCo(r)||b.dataset.c==r.c)return;r.c=b.dataset.c;its[S.idx].querySelector('img').src=rrCut(r);$('#rrCn').textContent='· '+r.c;$$('#rrSw button').forEach(x=>{x.classList.toggle('on',x==b);x.setAttribute('aria-pressed',x==b)});photo(0)});
+if(S.focus)photo(dir||0)}
+function go(i,dir){S.idx=cl(i,0,N-1);S.pos=S.idx;render(S.pos);update(dir)}
+function step(d){go((S.idx+d+N)%N,d)}
+function tabs(){$$('.rr-tabs button').forEach(b=>b.setAttribute('aria-selected',b.dataset.s==S.side))}
+function setFocus(on){if(S.focus===on)return;S.focus=on;sec.classList.toggle('is-focus',on);layout();if(on){S.side='front';tabs();photo(0);setTimeout(()=>scrollTo({top:St.getBoundingClientRect().top+scrollY-92,behavior:reduce?'auto':'smooth'}),80)}}
+S.step=step;S.setFocus=setFocus;
+$$('.rr [data-rr]').forEach(b=>b.onclick=()=>step(+b.dataset.rr));
+$('.rr [data-rx]').onclick=()=>setFocus(false);
+$$('.rr-tabs button').forEach(b=>b.onclick=()=>{if(S.side==b.dataset.s)return;const d=b.dataset.s=='back'?1:-1;S.side=b.dataset.s;tabs();photo(d)});
+let sup=false;
+its.forEach(b=>b.onclick=()=>{if(sup)return;const i=+b.dataset.i;if(S.focus){if(i!==S.idx)go(i,i>S.idx?1:-1);return}if(i===S.idx)setFocus(true);else{go(i);setTimeout(()=>setFocus(true),reduce?0:560)}});
+V.addEventListener('click',e=>{if(sup){e.preventDefault();e.stopPropagation()}},true);
+/* rail drag: momentum + snap */
+let d=null;
+V.addEventListener('pointerdown',e=>{if(S.focus||(e.pointerType=='mouse'&&e.button))return;d={x:e.clientX,p0:S.pos,lx:e.clientX,lt:performance.now(),v:0,moved:false,id:e.pointerId}});
+V.addEventListener('pointermove',e=>{if(!d)return;const dx=e.clientX-d.x;if(!d.moved){if(Math.abs(dx)<7)return;d.moved=true;try{V.setPointerCapture(d.id)}catch(_){}T.classList.add('drag')}
+const now=performance.now(),v=(e.clientX-d.lx)/Math.max(1,now-d.lt);d.v=d.v*.7+v*.3;d.lx=e.clientX;d.lt=now;
+S.pos=cl(d.p0-dx/(S.pr),-.4,N-.6);T.style.setProperty('--lean',cl(d.v*6,-9,9));render(S.pos)});
+const end=()=>{if(!d)return;const m=d.moved,v=d.v;d=null;if(!m)return;sup=true;setTimeout(()=>sup=false,60);T.classList.remove('drag');T.style.setProperty('--lean',0);
+const t=cl(Math.round(S.pos-v*260/S.pr),0,N-1);go(t)};
+V.addEventListener('pointerup',end);V.addEventListener('pointercancel',end);
+/* swipe on the focused photo */
+let sw=null;I.addEventListener('pointerdown',e=>{if(e.pointerType=='mouse'&&e.button)return;sw={x:e.clientX,y:e.clientY}});
+const swEnd=e=>{if(!sw)return;const dx=e.clientX-sw.x,dy=e.clientY-sw.y;sw=null;if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy)*1.3)step(dx<0?1:-1)};
+I.addEventListener('pointerup',swEnd);I.addEventListener('pointercancel',()=>sw=null);
+if(window.ResizeObserver)new ResizeObserver(layout).observe(V);else addEventListener('resize',layout);
+layout();update();if(matchMedia('(hover:none)').matches)$('.rr-hint').textContent='Swipe the rail, or tap a piece to open it';
+if(!rrKey){rrKey=true;document.addEventListener('keydown',e=>{const c=rrCur;if(!c||!document.body.contains(c.sec)||document.querySelector('.ov.on'))return;if(/INPUT|TEXTAREA|SELECT/.test(e.target.tagName))return;const r=c.sec.getBoundingClientRect();if(!(r.top<innerHeight*.7&&r.bottom>innerHeight*.3))return;
+if(e.key=='ArrowLeft'){e.preventDefault();c.step(-1)}else if(e.key=='ArrowRight'){e.preventDefault();c.step(1)}else if(e.key=='Escape'&&c.focus)c.setFocus(false)})}}
 function home(){const men=P.filter(p=>p.gender=='Men'),wm=P.filter(p=>p.gender=='Women'&&!isCo(p));
 return `<section class="hero">${SL.map((s,i)=>`<div class="slide ${i?'':'on'}"><img src="${s[0]}" alt="" style="object-position:${i?'top':'center'}"><div class="w hcopy"><div class="eyebrow">${s[1]}</div><h1>${s[2]}</h1><p>${s[3]}</p><div><a class="btn" href="${s[4]}">Shop now</a></div></div></div>`).join('')}<div class="dots">${SL.map((_,i)=>`<button class="${i?'':'on'}" aria-label="Slide ${i+1}"></button>`).join('')}</div></section>
+${rail()}
 <section class="sec"><div class="w"><div class="sh"><div class="eyebrow">Top Collection</div><h2>Popular Collections</h2></div><div class="cols">
 <a class="col" href="#/shop/Women"><img src="${byId('panda').images.Purple[0]}" alt="Women"><div class="cc"><div class="eyebrow">For Her</div><h3>Women</h3><span>Shop now</span></div></a>
 <a class="col" href="#/shop/Men"><img src="${byId('horse').images.Black[0]}" alt="Men"><div class="cc"><div class="eyebrow">For Him</div><h3>Men</h3><span>Shop now</span></div></a>
@@ -1286,7 +1404,7 @@ $$('.ov').forEach(o=>o.onclick=e=>{if(e.target==o||e.target.closest('[data-x]')|
 document.onkeydown=e=>{if(e.key=='Escape')closeAll()};
 $('#sI').oninput=e=>{const q=e.target.value.trim().toLowerCase(),r=q?P.filter(p=>(p.name+' '+p.gender+' '+p.type).toLowerCase().includes(q)):[];$('#sR').innerHTML=q?(r.map(p=>`<a class="sr" href="#/p/${p.id}"><img src="${first(p)}" alt=""><div><b>${p.name}</b><br>${inr(p.price)}</div></a>`).join('')||'<div class="empty">No matching products.</div>'):''};
 function route(){const h=(location.hash||'#/').split('/'),a=$('#app');let n='home';closeAll();
-if(h[1]=='p'){a.innerHTML=prod(h[2]);prodBind();n=''}else if(h[1]=='shop'){const g=decodeURIComponent(h[2]||'all');a.innerHTML=shop(g);shopBind();n=g=='all'?'shop':g}else if(h[1]=='about'){a.innerHTML=about();n='about'}else{a.innerHTML=home();slides()}
+if(h[1]=='p'){a.innerHTML=prod(h[2]);prodBind();n=''}else if(h[1]=='shop'){const g=decodeURIComponent(h[2]||'all');a.innerHTML=shop(g);shopBind();n=g=='all'?'shop':g}else if(h[1]=='about'){a.innerHTML=about();n='about'}else{a.innerHTML=home();slides();railBind()}
 $$('nav.main a').forEach(x=>x.classList.toggle('on',x.dataset.n==n));scrollTo(0,0)}
 addEventListener('hashchange',route);save();drawCart();route();
 </script></body></html>
